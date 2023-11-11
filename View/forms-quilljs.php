@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<!-- Mirrored from coderthemes.com/adminto/layouts/apps-chat.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 23:15:29 GMT -->
-<head>
-        <meta charset="utf-8" />
-        <title>Chat | Adminto - Responsive Admin Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
-
-        <!-- App css -->
-
-        <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
-
-        <!-- icons -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
-    </head>
-
     <!-- body start -->
     <body class="loading" data-layout-color="light"  data-layout-mode="default" data-layout-size="fluid" data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
 
@@ -272,7 +249,7 @@
                         </li>
     
                         <li>
-                            <h4 class="page-title-main">Chat</h4>
+                            <h4 class="page-title-main">Quilljs Editors</h4>
                         </li>
             
                     </ul>
@@ -830,6 +807,7 @@
 
             </div>
             <!-- Left Sidebar End -->
+            
             <!-- ============================================================== -->
             <!-- Start Page Content here -->
             <!-- ============================================================== -->
@@ -840,505 +818,69 @@
                     <!-- Start Content-->
                     <div class="container-fluid">
 
-                     
                         <div class="row">
-                            
-                            <div class="col-xl-3 col-lg-4">
-                                <div class="card chat-list-card mb-xl-0">
+                            <div class="col-12">
+                                <div class="card">
                                     <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="flex-shrink-0">
-                                                <img src="assets/images/users/user-1.jpg" alt="" class="flex-shrink-0 rounded-circle avatar-sm">
-                                            </div>
-                                            <div class="flex-grow-1 align-items-center ms-2">
-                                                <h5 class="mt-0 mb-1">Nowak Helme</h5>
-                                                <p class="font-13 text-muted mb-0">Admin Head</p>
-                                            </div>
-                                            
-                                        </div>
+                                        <h4 class="header-title">Snow Editor</h4>
+                                        <p class="sub-header">Snow is a clean, flat toolbar theme.</p>
 
-                                        <hr class="my-3">
-
-                                        <div class="search-box chat-search-box">
-                                            <input type="text" class="form-control" placeholder="Search...">
-                                            <i class="mdi mdi-magnify search-icon"></i>
-                                        </div>
-
-                                        <hr class="my-3">
-
-                                        <div class="">
-                                            <ul class="list-unstyled chat-list mb-0" style="max-height: 413px;" data-simplebar>
-                                                <li class="active">
-                                                    <a href="#">
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 chat-user-img active align-self-center me-2">
-                                                                <img src="assets/images/users/user-2.jpg" class="rounded-circle avatar-sm" alt="">
-                                                            </div>
-                                                            
-                                                            <div class="flex-grow-1 overflow-hidden">
-                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Margaret Clayton</h5>
-                                                                <p class="text-truncate mb-0">I've finished it! See you so...</p>
-                                                            </div>
-                                                            <div class="font-11">05 min</div>
-                                                        </div>
-                                                    </a>
+                                        <div id="snow-editor" style="height: 300px;">
+                                            <h3><span class="ql-size-large">Hello World!</span></h3>
+                                            <p><br></p>
+                                            <h3>This is an simple editable area.</h3>
+                                            <p><br></p>
+                                            <ul>
+                                                <li>
+                                                    Select a text to reveal the toolbar.
                                                 </li>
                                                 <li>
-                                                    <a href="#">
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 chat-user-img active avatar-sm align-self-center me-2">
-                                                                <span class="avatar-title rounded-circle bg-soft-success text-success">
-                                                                    <i class="mdi mdi-account"></i>
-                                                                </span>
-                                                            </div>
-                                                            
-                                                            <div class="flex-grow-1 overflow-hidden">
-                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Jason Bent</h5>
-                                                                <p class="text-truncate mb-0">Hey! there I'm available</p>
-                                                            </div>
-                                                            <div class="font-11">20 min</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="unread">
-                                                    <a href="#">
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 chat-user-img align-self-center me-2">
-                                                                <img src="assets/images/users/user-3.jpg" class="rounded-circle avatar-sm" alt="">
-                                                            </div>
-                                                            
-                                                            <div class="flex-grow-1 overflow-hidden">
-                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Mark Nieto</h5>
-                                                                <p class="text-truncate mb-0">This theme is awesome!</p>
-                                                            </div>
-                                                            <div class="font-11">32 min</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="unread">
-                                                    <a href="#">
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 chat-user-img active align-self-center me-2">
-                                                                <img src="assets/images/users/user-4.jpg" class="rounded-circle avatar-sm" alt="">
-                                                            </div>
-                                                            
-                                                            <div class="flex-grow-1 overflow-hidden">
-                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Garret Sauer</h5>
-                                                                <p class="text-truncate mb-0">Nice to meet you</p>
-                                                            </div>
-                                                            <div class="font-11">01 hr</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 chat-user-img align-self-center me-2">
-                                                                <img src="assets/images/users/user-5.jpg" class="rounded-circle avatar-sm" alt="">
-                                                            </div>
-                                                            
-                                                            <div class="flex-grow-1 overflow-hidden">
-                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Michael James</h5>
-                                                                <p class="text-truncate mb-0">Good morning</p>
-                                                            </div>
-                                                            <div class="font-11">01 hr</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                                <li class="unread">
-                                                    <a href="#">
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 chat-user-img avatar-sm align-self-center me-2">
-                                                                <span class="avatar-title  rounded-circle bg-soft-primary text-primary">
-                                                                    <i class="mdi mdi-account"></i>
-                                                                </span>
-                                                            </div>
-                                                            
-                                                            <div class="flex-grow-1 overflow-hidden">
-                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Felicia Johnson</h5>
-                                                                <p class="text-truncate mb-0">Meeting 10am</p>
-                                                            </div>
-                                                            <div class="font-11">02 hr</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 chat-user-img active align-self-center me-2">
-                                                                <img src="assets/images/users/user-6.jpg" class="rounded-circle avatar-sm" alt="">
-                                                            </div>
-                                                            
-                                                            <div class="flex-grow-1 overflow-hidden">
-                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Tracy Marsh</h5>
-                                                                <p class="text-truncate mb-0">Hey! there I'm available</p>
-                                                            </div>
-                                                            <div class="font-11">04 hr</div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <div class="d-flex">
-                                                            <div class="flex-shrink-0 chat-user-img align-self-center me-2">
-                                                                <img src="assets/images/users/user-7.jpg" class="rounded-circle avatar-sm" alt="">
-                                                            </div>
-                                                            
-                                                            <div class="flex-grow-1 overflow-hidden">
-                                                                <h5 class="text-truncate font-14 mt-0 mb-1">Richard Lopez</h5>
-                                                                <p class="text-truncate mb-0">Nice to meet you</p>
-                                                            </div>
-                                                            <div class="font-11">05 hr</div>
-                                                        </div>
-                                                    </a>
+                                                    Edit rich document on-the-fly, so elastic!
                                                 </li>
                                             </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-9 col-lg-8">
-                                <div class="conversation-list-card card">
-                                    <div class="card-body">
-                                        <div class="dropdown float-end">
-                                            <a href="#" class="dropdown-toggle arrow-none card-drop font-20" data-bs-toggle="dropdown" aria-expanded="false">
-                                                <i class="mdi mdi-dots-vertical"></i>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                                <div class="dropdown-divider"></div>
-                                                <!-- item-->
-                                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex">
-                                            <div class="flex-grow-1">
-                                                <h5 class="mt-0 mb-1 text-truncate">Margaret Clayton</h5>
-                                                <p class="font-13 text-muted mb-0"><i class="mdi mdi-circle text-success me-1 font-11"></i> Active</p>
-                                            </div>
-                                        </div>
-                                        <hr class="my-3">
+                                            <p><br></p>
+                                            <p>
+                                                End of simple area
+                                            </p>
 
-                                        <div>
-                                            <ul class="conversation-list slimscroll" style="max-height: 410px;" data-simplebar>
-                                                <li>
-                                                    <div class="chat-day-title">
-                                                        <span class="title">Today</span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="message-list">
-                                                        <div class="chat-avatar">
-                                                            <img src="assets/images/users/user-2.jpg" alt="">
-                                                        </div>
-                                                        <div class="conversation-text">
-                                                            <div class="ctext-wrap">
-                                                                <span class="user-name">Margaret Clayton</span>
-                                                                <p>
-                                                                    Hello!
-                                                                </p>
-                                                            </div>
-                                                            <span class="time">10:00</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="odd">
-                                                    <div class="message-list">
-                                                        <div class="chat-avatar">
-                                                            <img src="assets/images/users/user-1.jpg" alt="">
-                                                        </div>
-                                                        <div class="conversation-text">
-                                                            <div class="ctext-wrap">
-                                                                <span class="user-name">Nowak Helme</span>
-                                                                <p>
-                                                                    Hi, How are you? What about our next meeting?
-                                                                </p>
-                                                            </div>
-                                                            <span class="time">10:01</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li>
-                                                    <div class="message-list">
-                                                        <div class="chat-avatar">
-                                                            <img src="assets/images/users/user-2.jpg" alt="">
-                                                            
-                                                        </div>
-                                                        <div class="conversation-text">
-                                                            <div class="ctext-wrap">
-                                                                <span class="user-name">Margaret Clayton</span>
-                                                                <p>
-                                                                    Yeah everything is fine
-                                                                </p>
-                                                            </div>
-                                                            <span class="time">10:03</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="message-list">
-                                                        <div class="chat-avatar">
-                                                            <img src="assets/images/users/user-2.jpg" alt="male">
-                                                            
-                                                        </div>
-                                                        <div class="conversation-text">
-                                                            <div class="ctext-wrap">
-                                                                <span class="user-name">Margaret Clayton</span>
-                                                                <p>
-                                                                    & Next meeting tomorrow 10.00AM
-                                                                </p>
-                                                            </div>
-                                                            <span class="time">10:03</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <li class="odd">
-                                                    <div class="message-list">
-                                                        <div class="chat-avatar">
-                                                            <img src="assets/images/users/user-1.jpg" alt="">
-                                                        </div>
-                                                        <div class="conversation-text">
-                                                            <div class="ctext-wrap">
-                                                                <span class="user-name">Nowak Helme</span>
-                                                                <p>
-                                                                    Wow that's great
-                                                                </p>
-                                                            </div>
-                                                            <span class="time">10:04</span>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="p-3 conversation-input border-top">
-                                        <div class="row">
-                                            <div class="col">
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Enter Message...">
-                                                </div>
-                                            </div>
-                                            <div class="col-auto">
-                                                <button type="submit" class="btn btn-primary chat-send width-md waves-effect waves-light"><span class="d-none d-sm-inline-block me-2">Send</span> <i class="mdi mdi-send"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                                        </div> <!-- end Snow-editor-->
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div><!-- end col -->
                         </div>
-                        <!-- end row -->
+                        <!-- end row -->  
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="header-title">Bubble Editor</h4>
+                                        <p class="sub-header">Bubble is a simple tooltip based theme.</p>
+
+                                        <div id="bubble-editor" style="height: 300px;">
+                                            <h3><span class="ql-size-large">Hello World!</span></h3>
+                                            <p><br></p>
+                                            <h3>This is an simple editable area.</h3>
+                                            <p><br></p>
+                                            <ul>
+                                                <li>
+                                                    Select a text to reveal the toolbar.
+                                                </li>
+                                                <li>
+                                                    Edit rich document on-the-fly, so elastic!
+                                                </li>
+                                            </ul>
+                                            <p><br></p>
+                                            <p>
+                                                End of simple area
+                                            </p>
+                                        </div> <!-- end Snow-editor-->
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div><!-- end col -->
+                        </div>
+                        <!-- end row -->  
+                        
                     </div> <!-- container -->
 
                 </div> <!-- content -->
-
-                <!-- Footer Start -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> &copy; Adminto theme by <a href="#">Coderthemes</a> 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-end footer-links d-none d-sm-block">
-                                    <a href="javascript:void(0);">About Us</a>
-                                    <a href="javascript:void(0);">Help</a>
-                                    <a href="javascript:void(0);">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-                <!-- end Footer -->
-
-            </div>
-
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-            <!-- ============================================================== -->
-
-
-        </div>
-        <!-- END wrapper -->
-
-        <!-- Right Sidebar -->
-        <div class="right-bar">
-
-            <div data-simplebar class="h-100">
-
-                <div class="rightbar-title">
-                    <a href="javascript:void(0);" class="right-bar-toggle float-end">
-                        <i class="mdi mdi-close"></i>
-                    </a>
-                    <h4 class="font-16 m-0 text-white">Theme Customizer</h4>
-                </div>
-        
-                <!-- Tab panes -->
-                <div class="tab-content pt-0">  
-
-                    <div class="tab-pane active" id="settings-tab" role="tabpanel">
-
-                        <div class="p-3">
-                            <div class="alert alert-warning" role="alert">
-                                <strong>Customize </strong> the overall color scheme, Layout, etc.
-                            </div>
-
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Color Scheme</h6>
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="layout-color" value="light"
-                                    id="light-mode-check" checked />
-                                <label class="form-check-label" for="light-mode-check">Light Mode</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="layout-color" value="dark"
-                                    id="dark-mode-check" />
-                                <label class="form-check-label" for="dark-mode-check">Dark Mode</label>
-                            </div>
-
-                            <!-- Width -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Width</h6>
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="layout-size" value="fluid" id="fluid" checked />
-                                <label class="form-check-label" for="fluid-check">Fluid</label>
-                            </div>
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="layout-size" value="boxed" id="boxed" />
-                                <label class="form-check-label" for="boxed-check">Boxed</label>
-                            </div>
-
-                            <!-- Menu positions -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Menus (Leftsidebar and Topbar) Positon</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-position" value="fixed" id="fixed-check"
-                                    checked />
-                                <label class="form-check-label" for="fixed-check">Fixed</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-position" value="scrollable"
-                                    id="scrollable-check" />
-                                <label class="form-check-label" for="scrollable-check">Scrollable</label>
-                            </div>
-
-                            <!-- Left Sidebar-->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Left Sidebar Color</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-color" value="light" id="light" />
-                                <label class="form-check-label" for="light-check">Light</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-color" value="dark" id="dark" checked/>
-                                <label class="form-check-label" for="dark-check">Dark</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-color" value="brand" id="brand" />
-                                <label class="form-check-label" for="brand-check">Brand</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-3">
-                                <input type="checkbox" class="form-check-input" name="leftbar-color" value="gradient" id="gradient" />
-                                <label class="form-check-label" for="gradient-check">Gradient</label>
-                            </div>
-
-                            <!-- size -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Left Sidebar Size</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-size" value="default"
-                                    id="default-size-check" checked />
-                                <label class="form-check-label" for="default-size-check">Default</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-size" value="condensed"
-                                    id="condensed-check" />
-                                <label class="form-check-label" for="condensed-check">Condensed <small>(Extra Small size)</small></label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="leftbar-size" value="compact"
-                                    id="compact-check" />
-                                <label class="form-check-label" for="compact-check">Compact <small>(Small size)</small></label>
-                            </div>
-
-                            <!-- User info -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Sidebar User Info</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="sidebar-user" value="true" id="sidebaruser-check" />
-                                <label class="form-check-label" for="sidebaruser-check">Enable</label>
-                            </div>
-
-
-                            <!-- Topbar -->
-                            <h6 class="fw-medium font-14 mt-4 mb-2 pb-1">Topbar</h6>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="topbar-color" value="dark" id="darktopbar-check"
-                                    checked />
-                                <label class="form-check-label" for="darktopbar-check">Dark</label>
-                            </div>
-
-                            <div class="form-check form-switch mb-1">
-                                <input type="checkbox" class="form-check-input" name="topbar-color" value="light" id="lighttopbar-check" />
-                                <label class="form-check-label" for="lighttopbar-check">Light</label>
-                            </div>
-
-                            <div class="d-grid mt-4">
-                                <button class="btn btn-primary" id="resetBtn">Reset to Default</button>
-                                <a href="https://1.envato.market/admintoadmin" class="btn btn-danger mt-3" target="_blank"><i class="mdi mdi-basket me-1"></i> Purchase Now</a>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
-
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
-
-        <!-- Vendor -->
-        <script src="assets/libs/jquery/jquery.min.js"></script>
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="assets/libs/node-waves/waves.min.js"></script>
-        <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
-        <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
-        <script src="assets/libs/feather-icons/feather.min.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
-        
-    </body>
-
-<!-- Mirrored from coderthemes.com/adminto/layouts/apps-chat.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 23:15:29 GMT -->
-</html>
