@@ -1,5 +1,5 @@
 <?php
 include "header.php";
-include "table4.php";
+include "quanly_binhluan.php";
 include "footer.php";
 ?>
