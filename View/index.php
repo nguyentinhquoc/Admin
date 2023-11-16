@@ -1,5 +1,6 @@
 <?php
 include "header.php";
-include "chat.php";
+include "forms-upload.php"; 
 include "footer.php";
+
 ?>
