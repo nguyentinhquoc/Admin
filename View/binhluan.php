@@ -1,261 +1,264 @@
     <!-- body start -->
-    <body class="loading" data-layout-color="light"  data-layout-mode="default" data-layout-size="fluid" data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
+
+    <body class="loading" data-layout-color="light" data-layout-mode="default" data-layout-size="fluid" data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
 
         <!-- Begin page -->
         <div id="wrapper">
 
             <!-- Topbar Start -->
             <div class="navbar-custom">
-                    <ul class="list-unstyled topnav-menu float-end mb-0">
+                <ul class="list-unstyled topnav-menu float-end mb-0">
 
-                        <li class="d-none d-lg-block">
-                            <form class="app-search">
-                                <div class="app-search-box">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search..." id="top-search">
-                                        <button class="btn input-group-text" type="submit">
-                                            <i class="fe-search"></i>
-                                        </button>
+                    <li class="d-none d-lg-block">
+                        <form class="app-search">
+                            <div class="app-search-box">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search..." id="top-search">
+                                    <button class="btn input-group-text" type="submit">
+                                        <i class="fe-search"></i>
+                                    </button>
+                                </div>
+                                <div class="dropdown-menu dropdown-lg" id="search-dropdown">
+                                    <!-- item-->
+                                    <div class="dropdown-header noti-title">
+                                        <h5 class="text-overflow mb-2">Found 22 results</h5>
                                     </div>
-                                    <div class="dropdown-menu dropdown-lg" id="search-dropdown">
-                                        <!-- item-->
-                                        <div class="dropdown-header noti-title">
-                                            <h5 class="text-overflow mb-2">Found 22 results</h5>
-                                        </div>
-            
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <i class="fe-home me-1"></i>
-                                            <span>Analytics Report</span>
-                                        </a>
-            
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <i class="fe-aperture me-1"></i>
-                                            <span>How can I help you?</span>
-                                        </a>
-                            
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <i class="fe-settings me-1"></i>
-                                            <span>User profile settings</span>
-                                        </a>
 
-                                        <!-- item-->
-                                        <div class="dropdown-header noti-title">
-                                            <h6 class="text-overflow mb-2 text-uppercase">Users</h6>
-                                        </div>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="fe-home me-1"></i>
+                                        <span>Analytics Report</span>
+                                    </a>
 
-                                        <div class="notification-list">
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                                <div class="d-flex align-items-start">
-                                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-2.jpg" alt="Generic placeholder image" height="32">
-                                                    <div class="w-100">
-                                                        <h5 class="m-0 font-14">Erwin E. Brown</h5>
-                                                        <span class="font-12 mb-0">UI Designer</span>
-                                                    </div>
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="fe-aperture me-1"></i>
+                                        <span>How can I help you?</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="fe-settings me-1"></i>
+                                        <span>User profile settings</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <div class="dropdown-header noti-title">
+                                        <h6 class="text-overflow mb-2 text-uppercase">Users</h6>
+                                    </div>
+
+                                    <div class="notification-list">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                            <div class="d-flex align-items-start">
+                                                <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-2.jpg" alt="Generic placeholder image" height="32">
+                                                <div class="w-100">
+                                                    <h5 class="m-0 font-14">Erwin E. Brown</h5>
+                                                    <span class="font-12 mb-0">UI Designer</span>
                                                 </div>
-                                            </a>
+                                            </div>
+                                        </a>
 
-                                            <!-- item-->
-                                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                                <div class="d-flex align-items-start">
-                                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-5.jpg" alt="Generic placeholder image" height="32">
-                                                    <div class="w-100">
-                                                        <h5 class="m-0 font-14">Jacob Deo</h5>
-                                                        <span class="font-12 mb-0">Developer</span>
-                                                    </div>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                            <div class="d-flex align-items-start">
+                                                <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-5.jpg" alt="Generic placeholder image" height="32">
+                                                <div class="w-100">
+                                                    <h5 class="m-0 font-14">Jacob Deo</h5>
+                                                    <span class="font-12 mb-0">Developer</span>
                                                 </div>
-                                            </a>
-                                        </div>
-            
-                                    </div> 
+                                            </div>
+                                        </a>
+                                    </div>
+
                                 </div>
+                            </div>
+                        </form>
+                    </li>
+
+                    <li class="dropdown d-inline-block d-lg-none">
+                        <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="fe-search noti-icon"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
+                            <form class="p-3">
+                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
                             </form>
-                        </li>
-    
-                        <li class="dropdown d-inline-block d-lg-none">
-                            <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fe-search noti-icon"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
-                                <form class="p-3">
-                                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                </form>
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list topbar-dropdown">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <i class="fe-bell noti-icon"></i>
+                            <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-lg">
+
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5 class="m-0">
+                                    <span class="float-end">
+                                        <a href="#" class="text-dark">
+                                            <small>Clear All</small>
+                                        </a>
+                                    </span>Notification
+                                </h5>
                             </div>
-                        </li>
-            
-                        <li class="dropdown notification-list topbar-dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <i class="fe-bell noti-icon"></i>
-                                <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-    
+
+                            <div class="noti-scroll" data-simplebar>
+
                                 <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5 class="m-0">
-                                        <span class="float-end">
-                                            <a href="#" class="text-dark">
-                                                <small>Clear All</small>
-                                            </a>
-                                        </span>Notification
-                                    </h5>
-                                </div>
-    
-                                <div class="noti-scroll" data-simplebar>
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                        <div class="notify-icon">
-                                            <img src="assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" /> </div>
-                                        <p class="notify-details">Cristina Pride</p>
-                                        <p class="text-muted mb-0 user-msg">
-                                            <small>Hi, How are you? What about our next meeting</small>
-                                        </p>
-                                    </a>
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-primary">
-                                            <i class="mdi mdi-comment-account-outline"></i>
-                                        </div>
-                                        <p class="notify-details">Caleb Flakelar commented on Admin
-                                            <small class="text-muted">1 min ago</small>
-                                        </p>
-                                    </a>
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon">
-                                            <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" /> </div>
-                                        <p class="notify-details">Karen Robinson</p>
-                                        <p class="text-muted mb-0 user-msg">
-                                            <small>Wow ! this admin looks good and awesome design</small>
-                                        </p>
-                                    </a>
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-warning">
-                                            <i class="mdi mdi-account-plus"></i>
-                                        </div>
-                                        <p class="notify-details">New user registered.
-                                            <small class="text-muted">5 hours ago</small>
-                                        </p>
-                                    </a>
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-info">
-                                            <i class="mdi mdi-comment-account-outline"></i>
-                                        </div>
-                                        <p class="notify-details">Caleb Flakelar commented on Admin
-                                            <small class="text-muted">4 days ago</small>
-                                        </p>
-                                    </a>
-    
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="notify-icon bg-secondary">
-                                            <i class="mdi mdi-heart"></i>
-                                        </div>
-                                        <p class="notify-details">Carlos Crouch liked
-                                            <b>Admin</b>
-                                            <small class="text-muted">13 days ago</small>
-                                        </p>
-                                    </a>
-                                </div>
-    
-                                <!-- All-->
-                                <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                                    View all
-                                    <i class="fe-arrow-right"></i>
+                                <a href="javascript:void(0);" class="dropdown-item notify-item active">
+                                    <div class="notify-icon">
+                                        <img src="assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
+                                    </div>
+                                    <p class="notify-details">Cristina Pride</p>
+                                    <p class="text-muted mb-0 user-msg">
+                                        <small>Hi, How are you? What about our next meeting</small>
+                                    </p>
                                 </a>
-    
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-primary">
+                                        <i class="mdi mdi-comment-account-outline"></i>
+                                    </div>
+                                    <p class="notify-details">Caleb Flakelar commented on Admin
+                                        <small class="text-muted">1 min ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon">
+                                        <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
+                                    </div>
+                                    <p class="notify-details">Karen Robinson</p>
+                                    <p class="text-muted mb-0 user-msg">
+                                        <small>Wow ! this admin looks good and awesome design</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-warning">
+                                        <i class="mdi mdi-account-plus"></i>
+                                    </div>
+                                    <p class="notify-details">New user registered.
+                                        <small class="text-muted">5 hours ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-info">
+                                        <i class="mdi mdi-comment-account-outline"></i>
+                                    </div>
+                                    <p class="notify-details">Caleb Flakelar commented on Admin
+                                        <small class="text-muted">4 days ago</small>
+                                    </p>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <div class="notify-icon bg-secondary">
+                                        <i class="mdi mdi-heart"></i>
+                                    </div>
+                                    <p class="notify-details">Carlos Crouch liked
+                                        <b>Admin</b>
+                                        <small class="text-muted">13 days ago</small>
+                                    </p>
+                                </a>
                             </div>
-                        </li>
-    
-                        <li class="dropdown notification-list topbar-dropdown">
-                            <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
-                                <span class="pro-user-name ms-1">
-                                    Nowak <i class="mdi mdi-chevron-down"></i> 
-                                </span>
+
+                            <!-- All-->
+                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
+                                View all
+                                <i class="fe-arrow-right"></i>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                                <!-- item-->
-                                <div class="dropdown-header noti-title">
-                                    <h6 class="text-overflow m-0">Welcome !</h6>
-                                </div>
-    
-                                <!-- item-->
-                                <a href="contacts-profile.html" class="dropdown-item notify-item">
-                                    <i class="fe-user"></i>
-                                    <span>My Account</span>
-                                </a>
-    
-                                <!-- item-->
-                                <a href="auth-lock-screen.html" class="dropdown-item notify-item">
-                                    <i class="fe-lock"></i>
-                                    <span>Lock Screen</span>
-                                </a>
-    
-                                <div class="dropdown-divider"></div>
-    
-                                <!-- item-->
-                                <a href="auth-logout.html" class="dropdown-item notify-item">
-                                    <i class="fe-log-out"></i>
-                                    <span>Logout</span>
-                                </a>
-    
-                            </div>
-                        </li>
-    
-                        <li class="dropdown notification-list">
-                            <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
-                                <i class="fe-settings noti-icon"></i>
-                            </a>
-                        </li>
-    
-                    </ul>
-    
-                    <!-- LOGO -->
-                    <div class="logo-box">
-                        <a href="index.html" class="logo logo-light text-center">
-                            <span class="logo-sm">
-                                <img src="assets/images/logo-sm.png" alt="" height="22">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="assets/images/logo-light.png" alt="" height="16">
+
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list topbar-dropdown">
+                        <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+                            <span class="pro-user-name ms-1">
+                                Nowak <i class="mdi mdi-chevron-down"></i>
                             </span>
                         </a>
-                        <a href="index.html" class="logo logo-dark text-center">
-                            <span class="logo-sm">
-                                <img src="assets/images/logo-sm.png" alt="" height="22">
-                            </span>
-                            <span class="logo-lg">
-                                <img src="assets/images/logo-dark.png" alt="" height="16">
-                            </span>
+                        <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome !</h6>
+                            </div>
+
+                            <!-- item-->
+                            <a href="contacts-profile.html" class="dropdown-item notify-item">
+                                <i class="fe-user"></i>
+                                <span>My Account</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="auth-lock-screen.html" class="dropdown-item notify-item">
+                                <i class="fe-lock"></i>
+                                <span>Lock Screen</span>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <!-- item-->
+                            <a href="auth-logout.html" class="dropdown-item notify-item">
+                                <i class="fe-log-out"></i>
+                                <span>Logout</span>
+                            </a>
+
+                        </div>
+                    </li>
+
+                    <li class="dropdown notification-list">
+                        <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
+                            <i class="fe-settings noti-icon"></i>
                         </a>
-                    </div>
+                    </li>
 
-                    <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                        <li>
-                            <button class="button-menu-mobile disable-btn waves-effect">
-                                <i class="fe-menu"></i>
-                            </button>
-                        </li>
-    
-                        <li>
-                            <h4 class="page-title-main">Table Editable</h4>
-                        </li>
-            
-                    </ul>
+                </ul>
 
-                    <div class="clearfix"></div> 
-               
+                <!-- LOGO -->
+                <div class="logo-box">
+                    <a href="index.html" class="logo logo-light text-center">
+                        <span class="logo-sm">
+                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="assets/images/logo-light.png" alt="" height="16">
+                        </span>
+                    </a>
+                    <a href="index.html" class="logo logo-dark text-center">
+                        <span class="logo-sm">
+                            <img src="assets/images/logo-sm.png" alt="" height="22">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="assets/images/logo-dark.png" alt="" height="16">
+                        </span>
+                    </a>
+                </div>
+
+                <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
+                    <li>
+                        <button class="button-menu-mobile disable-btn waves-effect">
+                            <i class="fe-menu"></i>
+                        </button>
+                    </li>
+
+                    <li>
+                        <h4 class="page-title-main">Table Editable</h4>
+                    </li>
+
+                </ul>
+
+                <div class="clearfix"></div>
+
             </div>
             <!-- end Topbar -->
 
@@ -264,40 +267,40 @@
 
                 <div class="h-100" data-simplebar>
 
-                     <!-- User box -->
+                    <!-- User box -->
                     <div class="user-box text-center">
 
                         <img src="assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
-                            <div class="dropdown">
-                                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">Nowak Helme</a>
-                                <div class="dropdown-menu user-pro-dropdown">
+                        <div class="dropdown">
+                            <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">Nowak Helme</a>
+                            <div class="dropdown-menu user-pro-dropdown">
 
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fe-user me-1"></i>
-                                        <span>My Account</span>
-                                    </a>
-        
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fe-settings me-1"></i>
-                                        <span>Settings</span>
-                                    </a>
-        
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fe-lock me-1"></i>
-                                        <span>Lock Screen</span>
-                                    </a>
-        
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fe-log-out me-1"></i>
-                                        <span>Logout</span>
-                                    </a>
-        
-                                </div>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-user me-1"></i>
+                                    <span>My Account</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-settings me-1"></i>
+                                    <span>Settings</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-lock me-1"></i>
+                                    <span>Lock Screen</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="fe-log-out me-1"></i>
+                                    <span>Logout</span>
+                                </a>
+
                             </div>
+                        </div>
 
                         <p class="text-muted left-user-info">Admin Head</p>
 
@@ -322,7 +325,7 @@
                         <ul id="side-menu">
 
                             <li class="menu-title">Navigation</li>
-                
+
                             <li>
                                 <a href="index.html">
                                     <i class="mdi mdi-view-dashboard-outline"></i>
@@ -386,8 +389,8 @@
                             <li>
                                 <a href="apps-projects.html">
                                     <i class="mdi mdi-briefcase-variant-outline"></i>
-                                     <span> Projects </span>
-                                </a>    
+                                    <span> Projects </span>
+                                </a>
                             </li>
 
                             <li>
@@ -478,7 +481,7 @@
                                         <li>
                                             <a href="pages-coming-soon.html">Coming Soon</a>
                                         </li>
-                                     </ul>
+                                    </ul>
                                 </div>
                             </li>
 
@@ -493,7 +496,7 @@
                                     <ul class="nav-second-level">
                                         <li>
                                             <a href="layouts-horizontal.html">Horizontal</a>
-                                        </li>                       
+                                        </li>
                                         <li>
                                             <a href="layouts-preloader.html">Preloader</a>
                                         </li>
@@ -807,7 +810,7 @@
 
             </div>
             <!-- Left Sidebar End -->
-            
+
             <!-- ============================================================== -->
             <!-- Start Page Content here -->
             <!-- ============================================================== -->
@@ -821,119 +824,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">
-                                    <div class="card-body">
-        
-                                        <h5 class="mt-0">Inline edit</h5>
-                                        <p class="sub-header">Inline edit like a spreadsheet on two columns only and without identifier column.</p>
-                                        <div class="table-responsive">
-                                            <table class="table table-centered mb-0" id="inline-editable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
-                                                    </tr>
-                                                </thead>
-                                            
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>61</td>
-                                                        <td>2011/04/25</td>
-                                                        <td>$320,800</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Garrett Winters</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>63</td>
-                                                        <td>2011/07/25</td>
-                                                        <td>$170,750</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Ashton Cox</td>
-                                                        <td>Junior Technical Author</td>
-                                                        <td>San Francisco</td>
-                                                        <td>66</td>
-                                                        <td>2009/01/12</td>
-                                                        <td>$86,000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>Cedric Kelly</td>
-                                                        <td>Senior Javascript Developer</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>22</td>
-                                                        <td>2012/03/29</td>
-                                                        <td>$433,060</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>5</td>
-                                                        <td>Airi Satou</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>33</td>
-                                                        <td>2008/11/28</td>
-                                                        <td>$162,700</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>6</td>
-                                                        <td>Brielle Williamson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>New York</td>
-                                                        <td>61</td>
-                                                        <td>2012/12/02</td>
-                                                        <td>$372,000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>7</td>
-                                                        <td>Herrod Chandler</td>
-                                                        <td>Sales Assistant</td>
-                                                        <td>San Francisco</td>
-                                                        <td>59</td>
-                                                        <td>2012/08/06</td>
-                                                        <td>$137,500</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8</td>
-                                                        <td>Rhona Davidson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>Tokyo</td>
-                                                        <td>55</td>
-                                                        <td>2010/10/14</td>
-                                                        <td>$327,900</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>9</td>
-                                                        <td>Colleen Hurst</td>
-                                                        <td>Javascript Developer</td>
-                                                        <td>San Francisco</td>
-                                                        <td>39</td>
-                                                        <td>2009/09/15</td>
-                                                        <td>$205,500</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>10</td>
-                                                        <td>Sonya Frost</td>
-                                                        <td>Software Engineer</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>23</td>
-                                                        <td>2008/12/13</td>
-                                                        <td>$103,600</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div> <!-- end .table-responsive-->
-                                    </div> <!-- end card-body -->
+
                                 </div> <!-- end card -->
                             </div> <!-- end col -->
                         </div> <!-- end row -->
@@ -943,7 +834,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
-        
+
                                         <h5 class="mt-0">Inline edit with Button</h5>
                                         <p class="sub-header">Inline edit like a spreadsheet, toolbar column with edit button only and without focus on first input.</p>
                                         <div class="table-responsive">
@@ -951,106 +842,30 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
+                                                        <th>Tên sản phẩm</th>
+                                                        <th>Tên người dùng</th>
+                                                        <th>Bình luận </th>
+                                                        <th>Ngày bình luận</th>
+                                                        <th>Xóa</th>
                                                     </tr>
                                                 </thead>
-                                            
+                                                <?php
+                                                $load_thongke_binhluan = load_thongke_binhluan();
+                                                ?>
                                                 <tbody>
+                                                    <?php foreach ($load_thongke_binhluan as $key => $value){ 
+                                                        extract($value);
+                                                        ?>
+                                                        
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>61</td>
-                                                        <td>2011/04/25</td>
-                                                        <td>$320,800</td>
+                                                        <td><?= $key+1 ?></td>
+                                                        <td><?= $name  ?></td>
+                                                        <td><?= $nameuser  ?></td>
+                                                        <td><?= $comment  ?></td>
+                                                        <td><?= $date  ?></td>
+                                                        <td><?= 'ICON'  ?></td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>2</td>
-                                                        <td>Garrett Winters</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>63</td>
-                                                        <td>2011/07/25</td>
-                                                        <td>$170,750</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>3</td>
-                                                        <td>Ashton Cox</td>
-                                                        <td>Junior Technical Author</td>
-                                                        <td>San Francisco</td>
-                                                        <td>66</td>
-                                                        <td>2009/01/12</td>
-                                                        <td>$86,000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>4</td>
-                                                        <td>Cedric Kelly</td>
-                                                        <td>Senior Javascript Developer</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>22</td>
-                                                        <td>2012/03/29</td>
-                                                        <td>$433,060</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>5</td>
-                                                        <td>Airi Satou</td>
-                                                        <td>Accountant</td>
-                                                        <td>Tokyo</td>
-                                                        <td>33</td>
-                                                        <td>2008/11/28</td>
-                                                        <td>$162,700</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>6</td>
-                                                        <td>Brielle Williamson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>New York</td>
-                                                        <td>61</td>
-                                                        <td>2012/12/02</td>
-                                                        <td>$372,000</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>7</td>
-                                                        <td>Herrod Chandler</td>
-                                                        <td>Sales Assistant</td>
-                                                        <td>San Francisco</td>
-                                                        <td>59</td>
-                                                        <td>2012/08/06</td>
-                                                        <td>$137,500</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>8</td>
-                                                        <td>Rhona Davidson</td>
-                                                        <td>Integration Specialist</td>
-                                                        <td>Tokyo</td>
-                                                        <td>55</td>
-                                                        <td>2010/10/14</td>
-                                                        <td>$327,900</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>9</td>
-                                                        <td>Colleen Hurst</td>
-                                                        <td>Javascript Developer</td>
-                                                        <td>San Francisco</td>
-                                                        <td>39</td>
-                                                        <td>2009/09/15</td>
-                                                        <td>$205,500</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>10</td>
-                                                        <td>Sonya Frost</td>
-                                                        <td>Software Engineer</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>23</td>
-                                                        <td>2008/12/13</td>
-                                                        <td>$103,600</td>
-                                                    </tr>
+                                                 <?php }   ?>
                                                 </tbody>
                                             </table>
                                         </div> <!-- end .table-responsive-->
@@ -1058,7 +873,7 @@
                                 </div> <!-- end card -->
                             </div> <!-- end col -->
                         </div> <!-- end row -->
-    
+
                     </div> <!-- container -->
 
                 </div> <!-- content -->
