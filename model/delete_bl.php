@@ -1,5 +1,3 @@
-
-
 <?php
 // lấy id của bình luận cần xóa
 if (isset($_GET['$binhluan_id'])) {
@@ -11,5 +9,4 @@ if (isset($_GET['$binhluan_id'])) {
     echo("xóa cmt thành công");
     header("location :index.php");
 }
-
 ?>
