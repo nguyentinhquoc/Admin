@@ -3,6 +3,8 @@ ob_start();
 include("../model/pdo.php");
 include "../model/thongke_binhluan.php";
 include "../model/delete_bl.php";
+include "../model/taikhoan.php";
+include "../model/vocher.php";
 include "header.php";
 $act = $_GET["act"];
 if (!isset($_GET["act"])) {
@@ -14,6 +16,15 @@ if (!isset($_GET["act"])) {
             break;
         case 'chat':
             include "chat.php";
+            break;
+        case 'taikhoan':
+            include "taikhoan.php";
+            break;
+        case 'vocher':
+            include "vocher.php";
+            break;
+        case 'donhang':
+            include "donhang.php";
             break;
         default:
             break;
