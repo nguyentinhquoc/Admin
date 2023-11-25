@@ -1,6 +1,4 @@
-
-                <!-- Footer Start -->
-                <footer class="footer">
+<footer class="footer">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
@@ -19,7 +17,6 @@
                 <!-- end Footer -->
 
             </div>
-
             <!-- ============================================================== -->
             <!-- End Page content -->
             <!-- ============================================================== -->
@@ -182,10 +179,20 @@
         <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
         <script src="assets/libs/feather-icons/feather.min.js"></script>
 
-        <!-- App js -->
+        <!-- knob plugin -->
+        <script src="assets/libs/jquery-knob/jquery.knob.min.js"></script>
+
+        <!--Morris Chart-->
+        <script src="assets/libs/morris.js06/morris.min.js"></script>
+        <script src="assets/libs/raphael/raphael.min.js"></script>
+  
+        <!-- Dashboar init js-->
+        <script src="assets/js/pages/dashboard.init.js"></script>
+
+        <!-- App js-->
         <script src="assets/js/app.min.js"></script>
         
     </body>
 
-<!-- Mirrored from coderthemes.com/adminto/layouts/apps-chat.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 23:15:29 GMT -->
+<!-- Mirrored from coderthemes.com/adminto/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 23:15:28 GMT -->
 </html>
