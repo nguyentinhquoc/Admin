@@ -1,6 +1,10 @@
 <?php
-function upload_taikhoan(){
-    $sql="Select * from taikhoan";
+function upload_taikhoan($role){
+    if ($role==0) {
+    $sql="Select * from taikhoan ";
+    }else {
+        $sql="Select * from taikhoan where role=$role";
+    }
     $upload_taikhoan=pdo_query($sql);
     return $upload_taikhoan;
 }

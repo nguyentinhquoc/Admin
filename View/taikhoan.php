@@ -20,14 +20,13 @@ if (isset($_GET['huyquyen'])) {
 <div class="content-page">
     <div class="content">
         <div class="container-fluid">
-
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="mt-0 header-title">Quản lý tài khoản</h4>
                             <p class="text-muted font-14 mb-3">
-                               Dưới đây là bảng quản lí tất cả các tài khoản
+                                Dưới đây là bảng quản lí tất cả các tài khoản
                             </p>
                             <table class="table">
                                 <thead>
@@ -43,7 +42,11 @@ if (isset($_GET['huyquyen'])) {
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $upload_taikhoan = upload_taikhoan();
+                                    $role = 0;
+                                    if (isset($_GET['role'])) {
+                                        $role = $_GET['role'];
+                                    }
+                                    $upload_taikhoan = upload_taikhoan($role);
                                     foreach ($upload_taikhoan as $key => $value) { ?>
                                         <tr>
                                             <th scope="row"><?= $key + 1 ?></th>
@@ -53,22 +56,27 @@ if (isset($_GET['huyquyen'])) {
                                             <td><?= $value['address'] ?></td>
                                             <td>
                                                 <?php
-                                                $id = $value['id'];
-                                                if ($value['role'] == 1) {  ?>
-                                                    <a href="index.php?act=taikhoan&capquyen=<?= $id ?>">Cấp quyền Admin </a>
-                                                <?php } elseif ($value['role'] == 2) { ?>
-                                                    <a href="index.php?act=taikhoan&huyquyen=<?= $id ?>">Hủy quyền Admin</a>
-                                                <?php  }
-                                                ?>
+                                                $id = $value['id']; ?>
+                                                <p onclick="update_taikhoan(<?= $id ?>,0)"><?php
+                                                                                            if ($value['role'] == 1) {
+                                                                                                echo "Cấp quyền Admin";
+                                                                                            } else {
+                                                                                                echo "Hủy quyền Admin";
+                                                                                            }
+                                                                                            ?></p>
+
                                             </td>
                                             <td>
-                                                <?php
-                                                if ($value['trangthai'] == 1) {  ?>
-                                                    <a href="index.php?act=taikhoan&idkhoa=<?= $id ?>">Khóa </a>
-                                                <?php } elseif ($value['trangthai'] == 0) { ?>
-                                                    <a href="index.php?act=taikhoan&mokhoa=<?= $id ?>">Mở khóa</a>
-                                                <?php  }
-                                                ?>
+                                                <p onclick="update_taikhoan(0,<?= $id ?>)">
+                                                    <?php
+                                                    if ($value['trangthai'] == 1) {
+                                                        echo "Khóa";
+                                                    } else {
+                                                        echo "Mở khóa";
+                                                    }
+                                                    ?>
+                                                </p>
+
                                             </td>
 
                                         </tr>
@@ -77,6 +85,16 @@ if (isset($_GET['huyquyen'])) {
                                     ?>
                                 </tbody>
                             </table>
+                            <script>
+                                function update_taikhoan(capquyen, khoa) {
+                                    $.post("ajax/taikhoan.php", {
+                                        capquyen: capquyen,
+                                        khoa: khoa,
+                                    }, function(data) {
+                                        $(".table").html(data);
+                                    });
+                                }
+                            </script>
                         </div>
                     </div>
 
