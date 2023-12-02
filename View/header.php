@@ -367,8 +367,15 @@
                             </a>
                         </li>
                         <li>
+                            <a href="index.php?act=banner">
+                            <i class="fa fa-columns" aria-hidden="true"></i>
+                                <span> Quản lí Banner</span>
+                            </a>
+                        </li>
+                        <li>
                             <a href="index.php?act=thongbao">
-                                <i class="mdi mdi-calendar-blank-outline"></i>
+                            <i class="fa fa-bell" aria-hidden="true"></i>
+
                                 <span> Quán lí thông báo</span>
                             </a>
                         </li>

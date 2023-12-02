@@ -21,6 +21,15 @@ if (!isset($_GET["act"])) {
         case 'quanli_binhluan':
             include "binhluan.php";
             break;
+        case 'addbanner':
+            include "addbanner.php";
+            break;
+        case 'editbanner':
+            include "editbanner.php";
+            break;
+        case 'banner':
+            include "banner.php";
+            break;
         case 'chitietdh':
             include "chitietdh.php";
             break;

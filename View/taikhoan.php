@@ -57,17 +57,17 @@ if (isset($_GET['huyquyen'])) {
                                             <td>
                                                 <?php
                                                 $id = $value['id']; ?>
-                                                <p onclick="update_taikhoan(<?= $id ?>,0)"><?php
-                                                                                            if ($value['role'] == 1) {
-                                                                                                echo "Cấp quyền Admin";
-                                                                                            } else {
-                                                                                                echo "Hủy quyền Admin";
-                                                                                            }
-                                                                                            ?></p>
+                                                <p onclick="update_taikhoan(<?= $id ?>,0,<?=$role?>)"><?php
+                                                                                                        if ($value['role'] == 1) {
+                                                                                                            echo "Cấp quyền Admin";
+                                                                                                        } else {
+                                                                                                            echo "Hủy quyền Admin";
+                                                                                                        }
+                                                                                                        ?></p>
 
                                             </td>
                                             <td>
-                                                <p onclick="update_taikhoan(0,<?= $id ?>)">
+                                                <p onclick="update_taikhoan(0,<?= $id ?>,<?= $role ?>)">
                                                     <?php
                                                     if ($value['trangthai'] == 1) {
                                                         echo "Khóa";
@@ -86,10 +86,11 @@ if (isset($_GET['huyquyen'])) {
                                 </tbody>
                             </table>
                             <script>
-                                function update_taikhoan(capquyen, khoa) {
+                                function update_taikhoan(capquyen, khoa, role) {
                                     $.post("ajax/taikhoan.php", {
                                         capquyen: capquyen,
                                         khoa: khoa,
+                                        role: role,
                                     }, function(data) {
                                         $(".table").html(data);
                                     });

@@ -27,7 +27,7 @@ if ($khoa == 0) {
 ?>
 <thead>
     <tr>
-        <th scope="col">#<?= $khoa ?> </th>
+        <th scope="col"># </th>
         <th scope="col">Họ và tên</th>
         <th scope="col">Số điện thoại</th>
         <th scope="col">Email</th>
@@ -39,8 +39,8 @@ if ($khoa == 0) {
 <tbody>
     <?php
     $role = 0;
-    if (isset($_GET['role'])) {
-        $role = $_GET['role'];
+    if (isset($_POST['role'])) {
+       echo $role = $_POST['role'];
     }
     $upload_taikhoan = upload_taikhoan($role);
     foreach ($upload_taikhoan as $key => $value) { ?>
@@ -53,7 +53,7 @@ if ($khoa == 0) {
             <td>
                 <?php
                 $id = $value['id']; ?>
-                <p onclick="update_taikhoan(<?= $id ?>,0)"><?php
+                <p onclick="update_taikhoan(<?= $id ?>,0,<?=$role?>)"><?php
                                                             if ($value['role'] == 1) {
                                                                 echo "Cấp quyền Admin";
                                                             } else {
@@ -63,7 +63,7 @@ if ($khoa == 0) {
 
             </td>
             <td>
-                <p onclick="update_taikhoan(0,<?= $id ?>)">
+                <p onclick="update_taikhoan(0,<?= $id ?>,<?=$role?>)">
                     <?php
                     if ($value['trangthai'] == 1) {
                         echo "Khóa";
