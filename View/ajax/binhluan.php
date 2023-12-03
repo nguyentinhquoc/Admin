@@ -1,32 +1,25 @@
-<!-- ============================================================== -->
-<!-- Start Page Content here -->
-<!-- ============================================================== -->
-
-<div class="content-page">
-    <div class="content">
-
-        <!-- Start Content-->
-        <div class="container-fluid">
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-
-                    </div> <!-- end card -->
-                </div> <!-- end col -->
-            </div> <!-- end row -->
-
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-
-                            <h5 class="mt-0">Inline edit with Button</h5>
-                            <p class="sub-header">Inline edit like a spreadsheet, toolbar column with edit
-                                button only and without focus on first input.</p>
-                            <div class="table-responsive">
-                                <table class="table table-centered mb-0" id="btn-editable">
+<?php
+include "../../model/pdo.php";
+include "../../model/binhluan.php";
+$id_xoa=$_POST['id_xoa'];
+$id_an=$_POST['id_an'];
+if ($id_xoa==0) {
+        $sql = "SELECT * FROM binhluan where id = $id_an";
+        $check = pdo_query_one($sql);
+        if ($check['trangthai'] == 1) {
+            $sql2 = "UPDATE `binhluan` SET `trangthai` = '0' WHERE `binhluan`.`id` = $id_an";
+        }
+        if ($check['trangthai'] == 0) {
+            $sql2 = "UPDATE `binhluan` SET `trangthai` = '1' WHERE `binhluan`.`id` = $id_an";
+        }
+        pdo_execute($sql2);
+}
+if ($id_an==0) {
+        $sql = "DELETE FROM binhluan WHERE `binhluan`.`id` = $id_xoa";
+        pdo_execute($sql);
+    }
+?>
+<table class="table table-centered mb-0" id="btn-editable">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -99,22 +92,3 @@
                                         ?>
                                     </tbody>
                                 </table>
-                            </div> <!-- end .table-responsive-->
-                        </div> <!-- end card-body -->
-                    </div> <!-- end card -->
-                </div> <!-- end col -->
-            </div> <!-- end row -->
-            <script>
-    function update_bl(id_xoa, id_an) {
-        $.post("ajax/binhluan.php", {
-            id_xoa: id_xoa,
-            id_an: id_an,
-        }, function(data) {
-            $(".table-responsive").html(data);
-        });
-    }
-</script>
-
-        </div> <!-- container -->
-
-    </div> <!-- content -->

@@ -27,7 +27,7 @@
                                         <p><br></p>
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label"></label>Tên sản phẩm</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput1" readonly placeholder="Nhập tên sản phẩm." value="<?= $laytt_sp['name'] ?>" name="name">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nhập tên sản phẩm." value="<?= $laytt_sp['name'] ?>" name="name">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
@@ -62,62 +62,27 @@
                                             <button class="btn btn-primary" type="submit" style="width: 100%;" name="xn_edit">Xác nhận sửa sản phẩm</button>
                                         </div>
                                     </form>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <?php
-                                            $sql = "SELECT * from color";
-                                            $color = pdo_query($sql);
-                                            ?>
-                                            <tr>
-                                            <th scope="col">#</th>
-                                            <?php foreach ($color as $value) {?>
-                                            
-                                            
-                                                <th scope="col"><?=$value['color']?></th>
-                                            <?php
-                                            }
-                                            ?>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php
-                                            $sql = "SELECT * from size";
-                                            $size = pdo_query($sql);
-                                            ?>
-                                            <?php foreach ($size as $value) {?>
-                                                <tr>
-                                                <th scope="col"><?=$value['size']?></th>
-                                                <th scope="row">1</th>
-                                                <th scope="row">1</th>
-                                                <th scope="row">1</th>
-                                                </tr>
-                                            <?php
-                                            }
-                                            ?>
-                                            
-
-                                        </tbody>
-                                    </table>
                                     <?php
-                                    if (isset($_POST['xn_edit'])) {
-                                        $danhmuc = $_POST['danhmuc'];
-                                        $name = $_POST['name'];
-                                        $mota = $_POST['mota'];
-                                        $price = $_POST['price'];
-                                        $sale = $_POST['sale'];
-                                        $img = $_FILES['img']['name'];
-                                        $path = $img_path . "sanpham/" . $_FILES['img']['name'];
-                                        $file = $_FILES['img']['tmp_name'];
-                                        move_uploaded_file($file, $path);
-                                        if ($file) {
-                                            $sql = "UPDATE `sanpham` SET `name` = '$name',`iddm`='$danhmuc',`mota`='$mota',`sale`='$sale',`price`='$price',`img`='$img' WHERE `sanpham`.`id` = $id;";
-                                        } else {
-                                            $sql = "UPDATE `sanpham` SET `name` = '$name',`iddm`='$danhmuc',`mota`='$mota',`sale`='$sale',`price`='$price' WHERE `sanpham`.`id` = $id;";
-                                        }
-                                        pdo_execute($sql);
-                                        header('Location: index.php?act=sanpham&suatc');
-                                    }
-                                    ?>
+if (isset($_POST['xn_edit'])) {
+    $danhmuc=$_POST['danhmuc'];
+    $name=$_POST['name'];
+    $mota=$_POST['mota'];
+    $price=$_POST['price'];
+    $sale=$_POST['sale'];
+    $img=$_FILES['img']['name'];
+    $path= $img_path."sanpham/".$_FILES['img']['name'];
+    $file= $_FILES['img']['tmp_name'];
+    move_uploaded_file($file,$path);
+    if ($file) {
+        $sql="UPDATE `sanpham` SET `name` = '$name',`iddm`='$danhmuc',`mota`='$mota',`sale`='$sale',`price`='$price',`img`='$img' WHERE `sanpham`.`id` = $id;";
+    }else{
+        $sql="UPDATE `sanpham` SET `name` = '$name',`iddm`='$danhmuc',`mota`='$mota',`sale`='$sale',`price`='$price' WHERE `sanpham`.`id` = $id;";
+    }
+    pdo_execute($sql);
+    header('Location: index.php?act=sanpham&suatc');
+
+}
+        ?>
                                     <p><br></p>
                                     <p>
                                     </p>
@@ -131,7 +96,7 @@
             </div> <!-- container -->
 
         </div> <!-- content -->
-
+    
         <script>
             function displayImage() {
                 var input = document.getElementById('fileInput');

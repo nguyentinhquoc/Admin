@@ -36,9 +36,9 @@ if (isset($_GET['idvocher'])) {
                                             <td><?= $value['date'] ?></td>
                                             <td>
                                             <?php $idvocher=$value['idvocher'] ?>
-                                               <a href="index.php?act=vocher&idvocher=<?=$idvocher?>">Xóa vocher</a>
-                                            </td>
 
+                                               <p onclick="delete_vocher(<?=$value['idvocher']?>)">Xóa Vocher</p>
+                                            </td>
                                         </tr>
                                     <?php
                                     }
@@ -46,6 +46,15 @@ if (isset($_GET['idvocher'])) {
                                 </tbody>
                             </table>
                         </div>
+                        <script>
+                                    function delete_vocher(id_delete) {
+                                        $.post("ajax/vocher.php", {
+                                            id_delete: id_delete,
+                                        }, function(data) {
+                                            $(".table").html(data);
+                                        });
+                                    }
+                                </script>
                     </div>
 
                 </div>

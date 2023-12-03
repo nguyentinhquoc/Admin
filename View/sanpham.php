@@ -10,8 +10,7 @@
                             <p class="text-muted font-14 mb-3">
                                 Dưới đây là bảng quản lí tất cả các sản phẩm
                             <div class="search_sanpham">
-                                <form action="index.php?act=sanpham" method="post">
-                                   
+                                <form action="" method="post">
                                     <label for="exampleDataList" class="form-label">Datalist example</label>
                                     <input type="text" class="form-control" name="search" list="datalistOptions" id="exampleDataList" placeholder="Tìm kiếm sản phẩm">
                                     <datalist id="datalistOptions">
@@ -34,8 +33,8 @@
                                         <th scope="col">Số lượng</th>
                                         <th scope="col">Giảm giá</th>
                                         <th scope="col">Đánh giá(/5)</th>
-                                        <th scope="col">Chi tiết</th>
-                                        <th scope="col">Chức năng</th>
+                                        <th scope="col">Chi tiểt</th>
+                                        <th scope="col" >Chức năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,10 +42,14 @@
 
                                     <?php
                                     $search = "";
+                                    $trangthai = 2;
                                     if (isset($_POST["search"])) {
                                         $search = $_POST["search"];
                                     }
-                                    $upload_sanpham = upload_sanpham($search);
+                                    if (isset($_GET["idtrangthai"])) {
+                                        $trangthai = $_GET["idtrangthai"];
+                                    }
+                                    $upload_sanpham = upload_sanpham($search, $trangthai);
                                     foreach ($upload_sanpham as $key => $value) { ?>
                                         <tr>
                                             <th scope="row"><?= $key + 1 ?></th>
@@ -57,19 +60,43 @@
                                             <td><?= $value['soluong'] ?></td>
                                             <td><?= $value['sale'] ?></td>
                                             <td><?= $value['star'] ?></td>
-                                            <td><a href="">Chi tiết</a></td>
-                                            <td><a href="index.php?act=editsp&id=<?= $value['id'] ?>">Sửa</a> <a onclick="return confirm('Bạn có chắc muốn xóa sản phẩm <?= $value['name'] ?>')" href="index.php?act=sanpham&delete=<?= $value['id'] ?>">Xóa</a> </td>
+                                           
+                                            <td><a href="index.php?act=editsp&id=<?= $value['id'] ?>">Chi tiết</a></td>
+                                            <td>
+                                                <div style="display: flex;">
+                                                    <p class="thao_tac thaotac_2" style="margin-left: 10px;" onclick="delete_sanpham(0,<?= $value['id'] ?>,<?= $trangthai ?>,<?= $search ?>)">
+                                                        <?php
+                                                        if ($value['trangthai'] == 1) {
+                                                            echo '<i class="fa fa-eye" aria-hidden="true"></i>';
+                                                        } else {
+                                                            echo '<i class="fa fa-eye-slash" aria-hidden="true"></i>';
+                                                        }
+                                                        ?>
+                                                    </p>
+
+                                                    <p class="thao_tac thaotac_1" style="margin-left: 20px;" onclick="delete_sanpham(<?= $value['id'] ?>,0,<?= $trangthai ?>,<?= $search ?>)"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                </div>
+                                            </td>
+</p>
+
                                         </tr>
                                     <?php
                                     }
-                                    if (isset($_GET['delete'])) {
-                                        $id_delete = $_GET['delete'];
-                                        $sql = "DELETE FROM sanpham WHERE `sanpham`.`id` = $id_delete";
-                                        pdo_execute($sql);
-                                        header("Location: index.php?act=sanpham&deletetc");
-                                    }
+
                                     ?>
                                 </tbody>
+                                <script>
+                                    function delete_sanpham(id_delete, id_an, idtrangthai, search) {
+                                        $.post("ajax/sanpham.php", {
+                                            id_delete: id_delete,
+                                            id_an: id_an,
+                                            idtrangthai: idtrangthai,
+                                            search: search,
+                                        }, function(data) {
+                                            $(".table").html(data);
+                                        });
+                                    }
+                                </script>
                             </table>
 
                         </div>

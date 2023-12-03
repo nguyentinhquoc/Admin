@@ -1,0 +1,15 @@
+.thao_tac{
+    cursor: pointer;
+    font-weight: bolder;
+    text-align: center;
+}
+.thaotac_1{
+    color: red;
+}
+.thaotac_2{
+    color: rgb(237, 11, 195);
+}
+.thaotac_3{
+    color: rgb(37, 237, 11);
+
+}

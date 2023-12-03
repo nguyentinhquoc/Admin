@@ -21,34 +21,35 @@
                                     <th scope="col">Header 1</th>
                                     <th scope="col">Header 2</th>
                                     <th scope="col">Header 3</th>
+                                    <th scope="col">Chức năng</th>
                                 </tr>
                             </thead>
                             <tbody>
-
-
                                 <?php
                                 $sql = "SELECT * FROM banner";
                                 $load_banner = pdo_query($sql);
-
                                 foreach ($load_banner as $key => $value) { ?>
                                     <tr>
                                         <th scope="row"><?= $key + 1 ?></th>
-                                        <td><img src="<?= $img_path ?>banner/<?= $value['img'] ?>" alt="" width="100px"></td>
+                                        <td><img src="<?= $img_path ?>slider/<?= $value['img'] ?>" alt="" width="100px"></td>
                                         <td><?= $value['h1'] ?></td>
                                         <td><?= $value['h2'] ?></td>
                                         <td><?= $value['h3'] ?></td>
-                                        <td><a href="index.php?act=editbanner&id=<?= $value['id'] ?>">Sửa</a> <a onclick="return confirm('Bạn có chắc muốn xóa baner ?')" href="index.php?act=banner&delete=<?= $value['id'] ?>">Xóa</a> </td>
+                                        <td><a href="index.php?act=editbanner&id=<?= $value['id'] ?>">Sửa</a> <p onclick="delete_banner(<?=$value['id']?>)" >Xóa</p> </td>
                                     </tr>
                                 <?php
                                 }
-                                if (isset($_GET['delete'])) {
-                                    $id_delete = $_GET['delete'];
-                                    $sql = "DELETE FROM banner WHERE `banner`.`id` = $id_delete";
-                                    pdo_execute($sql);
-                                    header("Location: index.php?act=banner");
-                                }
                                 ?>
                             </tbody>
+                            <script>
+                                    function delete_banner(id_delete) {
+                                        $.post("ajax/banner.php", {
+                                            id_delete:id_delete,
+                                        }, function(data) {
+                                            $(".table").html(data);
+                                        });
+                                    }
+                                </script>
                         </table>
 
                     </div>

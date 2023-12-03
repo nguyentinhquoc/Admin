@@ -4,7 +4,7 @@ include"gloabal.php";
 include("../model/pdo.php");
 include "../model/star.php";
 include "../model/danhmuc.php";
-include "../model/thongke_binhluan.php";
+include "../model/binhluan.php";
 include "../model/delete_bl.php";
 include "../model/taikhoan.php";
 include "../model/sanpham.php";
@@ -12,7 +12,6 @@ include "../model/thongbao.php";
 include "../model/vocher.php";
 include "../model/donhang.php";
 include "header.php";
-
 if (!isset($_GET["act"])) {
     include("home.php");
 } else {
@@ -20,6 +19,15 @@ if (!isset($_GET["act"])) {
     switch ($act) {
         case 'quanli_binhluan':
             include "binhluan.php";
+            break;
+        case 'chitietsp':
+            include "chitietsp.php";
+            break;
+        case 'editthongbao':
+            include "editthongbao.php";
+            break;
+        case 'addthongbao':
+            include "addthongbao.php";
             break;
         case 'addbanner':
             include "addbanner.php";

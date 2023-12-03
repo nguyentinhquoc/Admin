@@ -13,11 +13,13 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
     <!-- App css -->
 
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- icons -->
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
@@ -361,22 +363,44 @@
                         </li>
                         <li class="menu-title mt-2">Apps</li>
                         <li>
-                            <a href="index.php?act=sanpham">
+                        <a href="#sidebarTaskssp" data-bs-toggle="collapse">
                                 <i class="fa fa-list" aria-hidden="true"></i>
                                 <span> Quản lí sản phẩm </span>
+                            </a>
+                            <div class="collapse" id="sidebarTaskssp">
+                                <ul class="nav-second-level">
+                                    <li>
+                                        <a href="index.php?act=sanpham">Tất cả sản phẩm</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?act=sanpham&idtrangthai=1">Sản phẩm hiển thị</a>
+
+                                    </li>
+                                    <li>
+                                        <a href="index.php?act=sanpham&idtrangthai=0">Sản phẩm ẩn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="index.php?act=thongbao">
+                                <i class="fa fa-bell" aria-hidden="true"></i>
+
+                                <span> Quán lí thông báo</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="index.php?act=vocher">
+                                <i class="mdi mdi-gift-outline"></i>
+                                <span>Quản lí Vocher </span>
                             </a>
                         </li>
                         <li>
                             <a href="index.php?act=banner">
-                            <i class="fa fa-columns" aria-hidden="true"></i>
+                                <i class="fa fa-columns" aria-hidden="true"></i>
                                 <span> Quản lí Banner</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?act=thongbao">
-                            <i class="fa fa-bell" aria-hidden="true"></i>
-
-                                <span> Quán lí thông báo</span>
                             </a>
                         </li>
                         <li>
@@ -385,13 +409,7 @@
                                 <span> Quản lí bình luận</span>
                             </a>
                         </li>
-                       
-                        <li>
-                            <a href="index.php?act=vocher">
-                                <i class="mdi mdi-gift-outline"></i>
-                                <span>Quản lí Vocher </span>
-                            </a>
-                        </li>
+
                         <li>
                             <a href="#sidebarTasks" data-bs-toggle="collapse">
                                 <i class="mdi mdi-clipboard-outline"></i>
@@ -420,10 +438,10 @@
                             </div>
                         </li>
 
-                      
+
                         <li>
                             <a href="#sidebarMultilevel3" data-bs-toggle="collapse">
-                            <i class="fa fa-user" aria-hidden="true"></i>
+                                <i class="fa fa-user" aria-hidden="true"></i>
 
                                 Quản lý tài khoản <span class="menu-arrow"></span>
                             </a>

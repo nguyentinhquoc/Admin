@@ -182,6 +182,7 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <?php include "assets/js/sweet_alert.php";
  ?> 
+
         <script src="assets/libs/jquery-knob/jquery.knob.min.js"></script>
         <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
         <script src="assets/libs/dropify/js/dropify.min.js"></script>

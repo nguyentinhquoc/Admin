@@ -1,44 +1,32 @@
 <main>
     <?php
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-    }
-    $sql = "SELECT * FROM banner where id=$id";
-    $load_value = pdo_query_one($sql);
     if (isset($_POST['xn_add'])) {
-        $Header1 = $_POST['Header1'];
-        $Header2 = $_POST['Header2'];
-        $Header3 = $_POST['Header3'];
+        $Header = $_POST['Header'];
+        $noidung = $_POST['noidung'];
         $img = $_FILES['img']['name'];
-        $path = $img_path . "slider/" . $_FILES['img']['name'];
+        $path = $img_path . "thongbao/" . $_FILES['img']['name'];
         $file = $_FILES['img']['tmp_name'];
-        move_uploaded_file($file, $path);
-        if ($Header1 != "" && $Header2 != "" && $Header3 != "") {
-            if ($file) {
-                $sql = "UPDATE `banner` SET `img` = '$img', `h1` = '$Header1', `h2` = '$Header2', `h3` = '$Header3' WHERE `banner`.`id` = $id;";
-            }else {
-                $sql = "UPDATE `banner` SET `h1` = '$Header1', `h2` = '$Header2', `h3` = '$Header3' WHERE `banner`.`id` = $id;";
-
-            }
+        if ($file && $Header != "" && $noidung != "") {
+            move_uploaded_file($file, $path);
+            $sql = "INSERT INTO `thongbao` (`id`, `img`, `header`, `noidung`) VALUES (NULL, ' $img', '$Header', '$noidung');";
             pdo_execute($sql);
-            header("Location: index.php?act=banner");
         } else {
-            if ($Header1 == "" || empty($Header1)) {
+            if ($Header == "" || empty($Header)) {
                 $err1 = '
                                 <p style="color: red;">* Vui lòng không bỏ trống</p>
                                             ';
             }
-            if ($Header2 == "" || empty($Header2)) {
+            if ($noidung == "" || empty($noidung)) {
                 $err2 = '
                                 <p style="color: red;">* Vui lòng không bỏ trống</p>
                                             ';
             }
-            if ($Header3 == "" || empty($Header3)) {
-                $err3 = '
+          
+            if ($img == "" || empty($img)) {
+                $err4 = '
                                 <p style="color: red;">* Vui lòng không bỏ trống</p>
                                             ';
             }
-          
         }
     }
 
@@ -54,51 +42,40 @@
                                 <div id="snow-editor" style="height: auto;">
 
                                     <p><br></p>
-                                    <h3>Edit banner</h3>
+                                    <h3>Thêm mới thông báo</h3>
 
                                     <p><br></p>
                                     <form action="" method="POST" enctype="multipart/form-data">
 
                                         <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Header 1</label>
+                                            <label for="exampleFormControlTextarea1" class="form-label">Header</label>
                                             <?php
                                             if (isset($err1)) {
                                                 echo $err1;
                                             }
                                             ?>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Header1"><?= $load_value['h1'] ?></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Header"></textarea>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Header 2</label>
+                                            <label for="exampleFormControlTextarea1" class="form-label">Nội dung</label>
                                             <?php
                                             if (isset($err2)) {
                                                 echo $err2;
                                             }
                                             ?>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Header2"><?= $load_value['h2'] ?></textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Header 3</label>
-                                            <?php
-                                            if (isset($err3)) {
-                                                echo $err3;
-                                            }
-                                            ?>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Header3"><?= $load_value['h3'] ?></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="noidung"></textarea>
                                         </div>
 
+
+
                                         <div class="mb-3">
-                                            <label for="formFile" class="form-label">Ảnh sản phẩm</label>
+                                            <label for="formFile" class="form-label">Ảnh banner</label>
                                             <input type="file" class="form-control" id="fileInput" onchange="displayImage()" name="img">
-                                        </div>
-                                        <div class="mb-3">
-                                            <div style="display: flex; justify-content: space-around; ">
-                                                <label for="">Ảnh cũ</label>
-                                                <div><img src="<?= $img_path ?>slider/<?=$load_value['img']?>" alt="" height=" 150px" class="rounded float-start"></div>
-                                                <label for="">Ảnh mới</label>
-                                                <div><img id="selectedImage" alt="" height="150px" class="rounded float-start"></div>
-                                            </div>
-                                           
+                                            <?php
+                                            if (isset($err4)) {
+                                                echo $err4;
+                                            }
+                                            ?>
                                         </div>
                                         <div>
                                             <div style="margin: 100px;"><img id="selectedImage" alt="" height="150px" class="rounded float-start"></div>
@@ -106,7 +83,7 @@
 
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn btn-primary" type="submit" style="width: 100%;" name="xn_add">Xác nhận thêm sản phẩm</button>
+                                    <button class="btn btn-primary" type="submit" style="width: 100%;" name="xn_add">Xác nhận thêm thông báo</button>
                                 </div>
                                 </form>
 

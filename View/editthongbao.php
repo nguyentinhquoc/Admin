@@ -3,42 +3,35 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
     }
-    $sql = "SELECT * FROM banner where id=$id";
+    $sql = "SELECT * FROM thongbao where id=$id";
     $load_value = pdo_query_one($sql);
     if (isset($_POST['xn_add'])) {
-        $Header1 = $_POST['Header1'];
-        $Header2 = $_POST['Header2'];
-        $Header3 = $_POST['Header3'];
+        $Header = $_POST['Header'];
+        $noidung = $_POST['noidung'];
         $img = $_FILES['img']['name'];
         $path = $img_path . "slider/" . $_FILES['img']['name'];
         $file = $_FILES['img']['tmp_name'];
         move_uploaded_file($file, $path);
-        if ($Header1 != "" && $Header2 != "" && $Header3 != "") {
+        if ($Header != "" && $noidung != "") {
             if ($file) {
-                $sql = "UPDATE `banner` SET `img` = '$img', `h1` = '$Header1', `h2` = '$Header2', `h3` = '$Header3' WHERE `banner`.`id` = $id;";
+                $sql = "UPDATE `thongbao` SET `img` = '$img', `header` = '$Header', `noidung` = '$noidung' WHERE `thongbao`.`id` = $id;";
             }else {
-                $sql = "UPDATE `banner` SET `h1` = '$Header1', `h2` = '$Header2', `h3` = '$Header3' WHERE `banner`.`id` = $id;";
+                $sql = "UPDATE `thongbao` SET `header` = '$Header', `noidung` = '$noidung' WHERE `thongbao`.`id` = $id;";
 
             }
             pdo_execute($sql);
-            header("Location: index.php?act=banner");
+            header("Location: index.php?act=thongbao");
         } else {
-            if ($Header1 == "" || empty($Header1)) {
+            if ($Header == "" || empty($Header)) {
                 $err1 = '
                                 <p style="color: red;">* Vui lòng không bỏ trống</p>
                                             ';
             }
-            if ($Header2 == "" || empty($Header2)) {
+            if ($noidung == "" || empty($noidung)) {
                 $err2 = '
                                 <p style="color: red;">* Vui lòng không bỏ trống</p>
                                             ';
             }
-            if ($Header3 == "" || empty($Header3)) {
-                $err3 = '
-                                <p style="color: red;">* Vui lòng không bỏ trống</p>
-                                            ';
-            }
-          
         }
     }
 
@@ -54,7 +47,7 @@
                                 <div id="snow-editor" style="height: auto;">
 
                                     <p><br></p>
-                                    <h3>Edit banner</h3>
+                                    <h3>Edit thongbao</h3>
 
                                     <p><br></p>
                                     <form action="" method="POST" enctype="multipart/form-data">
@@ -66,7 +59,7 @@
                                                 echo $err1;
                                             }
                                             ?>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Header1"><?= $load_value['h1'] ?></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Header"><?= $load_value['header'] ?></textarea>
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Header 2</label>
@@ -75,18 +68,8 @@
                                                 echo $err2;
                                             }
                                             ?>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Header2"><?= $load_value['h2'] ?></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="noidung"><?= $load_value['noidung'] ?></textarea>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="exampleFormControlTextarea1" class="form-label">Header 3</label>
-                                            <?php
-                                            if (isset($err3)) {
-                                                echo $err3;
-                                            }
-                                            ?>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Header3"><?= $load_value['h3'] ?></textarea>
-                                        </div>
-
                                         <div class="mb-3">
                                             <label for="formFile" class="form-label">Ảnh sản phẩm</label>
                                             <input type="file" class="form-control" id="fileInput" onchange="displayImage()" name="img">
@@ -94,11 +77,11 @@
                                         <div class="mb-3">
                                             <div style="display: flex; justify-content: space-around; ">
                                                 <label for="">Ảnh cũ</label>
-                                                <div><img src="<?= $img_path ?>slider/<?=$load_value['img']?>" alt="" height=" 150px" class="rounded float-start"></div>
+                                                <div><img src="<?= $img_path ?>thongbao/<?=$load_value['img']?>" alt="" height=" 150px" class="rounded float-start"></div>
                                                 <label for="">Ảnh mới</label>
                                                 <div><img id="selectedImage" alt="" height="150px" class="rounded float-start"></div>
                                             </div>
-                                           
+                                          
                                         </div>
                                         <div>
                                             <div style="margin: 100px;"><img id="selectedImage" alt="" height="150px" class="rounded float-start"></div>
