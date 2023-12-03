@@ -37,7 +37,6 @@
                                         <th scope="col">Trạng thái đơn hàng</th>
                                         <th scope="col">Tổng tiền</th>
                                         <th scope="col">Khách hàng</th>
-                                        <th scope="col">Số điện thoại</th>
                                         <th scope="col">Chi tiết</th>
                                         <th scope="col">Xác nhận</th>
                                         <th scope="col">Hủy đơn hàng</th>
@@ -71,7 +70,6 @@
                                         <td><?= $value['trangthai'] ?></td>
                                         <td><?= $value['thanhtien'] ?></td>
                                         <td><?= $value['user'] ?></td>
-                                        <td><?= $value['tel'] ?></td>
                                         <th scope="col"><a href="index.php?act=chitietdh&madh=<?= $value['madh'] ?>"> Chi tiết</a></th>
 
                                         <th scope="col">
