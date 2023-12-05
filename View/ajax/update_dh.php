@@ -10,6 +10,14 @@ if ($huy == 0) {
     if ($trangthai <= 5) {
         $sql2 = "UPDATE `phanloaidh` SET `idtrangthai` = '$trangthai' WHERE `phanloaidh`.`madh` = $madh";
         pdo_execute($sql2);
+        if ($trangthai == 4) {
+            $sql1 = "SELECT bienthe.id,phanloaidh.soluong 'soluongmua', bienthe.soluong 'soluongcu'FROM `phanloaidh` JOIN bienthe ON bienthe.id=phanloaidh.bienthe where phanloaidh.madh=$madh";
+            $check_bt = pdo_query_one($sql1);
+            $id_bt = $check_bt['id'];
+            $soluongnew = $check_bt['soluongcu'] - $check_bt['soluongmua'];
+            $sql = "UPDATE `bienthe` SET `soluong` = '$soluongnew' WHERE `bienthe`.`id` =  $id_bt;";
+            pdo_execute($sql);
+        }
     }
 } elseif ($huy == 1) {
     $trangthai = $dh['idtrangthai'];

@@ -21,9 +21,8 @@
                                     if ($_GET['iddh'] == 6) {
                                         $abd_head = "Dưới đây là bảng quản lí cho các đơn hàng đã hủy";
                                     }
-                                }else{
+                                } else {
                                     $abd_head = "Dưới đây là bảng quản lí cho các tất cả các đơn hàng";
-
                                 }
                                 ?>
                                 <?= $abd_head ?>

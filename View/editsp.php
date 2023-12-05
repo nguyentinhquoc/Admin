@@ -15,6 +15,7 @@
                                 <div id="snow-editor" style="height: auto;">
                                     <p><br></p>
                                     <h3>Sửa sản phẩm :<?= $laytt_sp['name'] ?></h3>
+
                                     <p><br></p>
                                     <form action="" method="POST" enctype="multipart/form-data">
                                         <label>Chọn danh mục</label>
@@ -27,7 +28,7 @@
                                         <p><br></p>
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label"></label>Tên sản phẩm</label>
-                                            <input type="text" class="form-control" id="exampleFormControlInput1" readonly placeholder="Nhập tên sản phẩm." value="<?= $laytt_sp['name'] ?>" name="name">
+                                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nhập tên sản phẩm." value="<?= $laytt_sp['name'] ?>" name="name">
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
@@ -54,50 +55,57 @@
                                         </div>
                                         <div style="display: flex; justify-content: space-around; ">
                                             <label for="">Ảnh cũ</label>
-                                            <div><img src="<?= $img_path ?>sanpham/<?= $laytt_sp['img'] ?>"" alt="" height=" 150px" class="rounded float-start"></div>
+                                            <div><img src="<?= $img_path ?>sanpham/<?= $laytt_sp['img'] ?>" alt="" height=" 150px" class="rounded float-start"></div>
                                             <label for="">Ảnh mới</label>
                                             <div><img id="selectedImage" alt="" height="150px" class="rounded float-start"></div>
                                         </div>
                                         <div class="mb-3">
-                                            <button class="btn btn-primary" type="submit" style="width: 100%;" name="xn_edit">Xác nhận sửa sản phẩm</button>
                                         </div>
-                                    </form>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <?php
-                                            $sql = "SELECT * from color";
-                                            $color = pdo_query($sql);
-                                            ?>
-                                            <tr>
-                                            <th scope="col">#</th>
-                                            <?php foreach ($color as $value) {?>
-                                            
-                                            
-                                                <th scope="col"><?=$value['color']?></th>
-                                            <?php
-                                            }
-                                            ?>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php
-                                            $sql = "SELECT * from size";
-                                            $size = pdo_query($sql);
-                                            ?>
-                                            <?php foreach ($size as $value) {?>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <?php
+                                                $sql = "SELECT * from color";
+                                                $color = pdo_query($sql);
+                                                ?>
                                                 <tr>
-                                                <th scope="col"><?=$value['size']?></th>
-                                                <th scope="row">1</th>
-                                                <th scope="row">1</th>
-                                                <th scope="row">1</th>
+                                                    <th scope="col">#</th>
+                                                    <?php foreach ($color as $value) { ?>
+                                                        <th scope="col"><?= $value['color'] ?></th>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </tr>
-                                            <?php
-                                            }
-                                            ?>
-                                            
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $sql = "SELECT * from size";
+                                                $size = pdo_query($sql);
+                                                ?>
+                                                <?php foreach ($size as $value1) { ?>
+                                                    <tr>
+                                                        <th scope="col"><?= $value1['size'] ?></th>
+                                                        <?php $sql = "SELECT * from color";
+                                                        $color = pdo_query($sql);
 
-                                        </tbody>
-                                    </table>
+                                                        ?>
+                                                        <?php foreach ($color as $value2) {
+                                                            $id_color = $value2['id'];
+                                                            $id_size = $value1['id'];
+                                                            $sql = "SELECT soluong from bienthe where idcolor = $id_color and idsize = $id_size and idsp = $id";
+                                                            $soluong = pdo_query_one($sql); ?>
+                                                            <td><input style="border: 0px; height: 30px; width: 100%;" value="<?= $soluong['soluong'] ?>" type="number" min="0"   name="<?= $id_color . $id_size ?>"></td>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                        <button class="btn btn-primary" type="submit" style="width: 100%;" name="xn_edit">Xác nhận sửa sản phẩm</button>
+                                    </form>
+
                                     <?php
                                     if (isset($_POST['xn_edit'])) {
                                         $danhmuc = $_POST['danhmuc'];
@@ -115,6 +123,18 @@
                                             $sql = "UPDATE `sanpham` SET `name` = '$name',`iddm`='$danhmuc',`mota`='$mota',`sale`='$sale',`price`='$price' WHERE `sanpham`.`id` = $id;";
                                         }
                                         pdo_execute($sql);
+                                        $sql1 = "SELECT * FROM size ";
+                                        $sql2 = "SELECT * FROM color";
+                                        $tongsize =  pdo_query($sql1);
+                                        $tongcolor = pdo_query($sql2);
+                                        foreach ($tongsize as $key => $value1) {
+                                            foreach ($tongcolor as $key => $value2) {
+                                                $slbienthe = $_POST[$value1['id'] . $value2['id']];
+                                                $mabt = $value1['id'] . "_" . $value2['id'];
+                                                $sql4 = "UPDATE `bienthe` SET `soluong` = '$slbienthe' WHERE `bienthe`.`mabienthe` =  '$mabt' and bienthe.idsp= '$id';";
+                                                pdo_execute($sql4);
+                                            }
+                                        }
                                         header('Location: index.php?act=sanpham&suatc');
                                     }
                                     ?>

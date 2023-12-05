@@ -9,7 +9,7 @@
                             <div class="card-body">
                                 <div id="snow-editor" style="height: auto;">
                                     <p><br></p>
-                                    <h3>Thêm mới sản phẩm.</h3>
+                                    <h3>Thêm mới sản phẩm. <?php ?></h3>
                                     <p><br></p>
                                     <form action="" method="POST" enctype="multipart/form-data">
                                         <label>Chọn danh mục</label>
@@ -49,15 +49,50 @@
                                         </div>
                                         <div><img id="selectedImage" alt="" height="150px" class="rounded float-start"></div>
 
-                                        <div class="mb-3">
-                                            <div id="box_bt"></div>
-                                            
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <?php
+                                                $sql = "SELECT * from color";
+                                                $color = pdo_query($sql);
+                                                ?>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <?php foreach ($color as $value) { ?>
+                                                        <th scope="col"><?= $value['color'] ?></th>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $sql = "SELECT * from size";
+                                                $size = pdo_query($sql);
+                                                ?>
+                                                <?php foreach ($size as $value1) { ?>
+                                                    <tr>
+                                                        <th scope="col"><?= $value1['size'] ?></th>
+                                                        <?php $sql = "SELECT * from color";
+                                                        $color = pdo_query($sql);
 
-                                                <a class="btn btn-primary" onclick="thembt()">Thêm biến thể sản phẩm</a>
-                                            </div>
-                                            <div class="mb-3">
-                                                <button class="btn btn-primary" type="submit" style="width: 100%;" name="xn_add">Xác nhận thêm sản phẩm</button>
-                                            </div>
+                                                        ?>
+                                                        <?php foreach ($color as $value2) {
+                                                            $id_color = $value2['id'];
+                                                            $id_size = $value1['id'];
+                                                        ?>
+                                                            <td><input style="border: 0px; height: 30px; width: 100%;" value="0" type="number" min="0" name="<?= $id_color . $id_size ?>"></td>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                        <div class="mb-3">
+                                            <button class="btn btn-primary" type="submit" style="width: 100%;" name="xn_add">Xác nhận thêm sản phẩm</button>
+                                        </div>
                                     </form>
                                     <?php
                                     if (isset($_POST['xn_add'])) {
@@ -69,59 +104,42 @@
                                         $img = $_FILES['img']['name'];
                                         $path = $img_path . "sanpham/" . $_FILES['img']['name'];
                                         $file = $_FILES['img']['tmp_name'];
+                                        $masp = time();
                                         move_uploaded_file($file, $path);
-                                        if ($file) {
-                                            $sql = "UPDATE `sanpham` SET `name` = '$name',`iddm`='$danhmuc',`mota`='$mota',`sale`='$sale',`price`='$price',`img`='$img' WHERE `sanpham`.`id` = $id;";
-                                        } else {
-                                            $sql = "UPDATE `sanpham` SET `name` = '$name',`iddm`='$danhmuc',`mota`='$mota',`sale`='$sale',`price`='$price' WHERE `sanpham`.`id` = $id;";
-                                        }
+                                        $sql = "INSERT INTO `sanpham` (`name`, `price`, `img`, `mota`, `iddm`, `sale`, `trangthai`, `masp`) VALUES ('$name', '$price', '$img', '$mota', '$danhmuc','$sale', '1', '$masp');";
                                         pdo_execute($sql);
-                                        header('Location: index.php?act=sanpham&suatc');
+                                        $sql2 = "SELECT id FROM sanpham where masp=$masp";
+                                        $idsp_add = pdo_query_one($sql2);
+                                        $idspadd = $idsp_add['id'];
+                                        $sql1 = "SELECT * FROM size ";
+                                        $sql2 = "SELECT * FROM color";
+                                        $tongsize =  pdo_query($sql1);
+                                        $tongcolor = pdo_query($sql2);
+                                        foreach ($tongsize as $key => $value1) {
+                                            foreach ($tongcolor as $key => $value2) {
+                                              '<br>'.   $slbienthe = $_POST[$value1['id'] . $value2['id']];
+                                              '<br>'.   $mabt = $value1['id'] . "_" . $value2['id'];
+                                              '<br>'.   $idsize = $value1['id'];
+                                              '<br>'.   $idcolor = $value2['id'];
+                                                $sql3 = "INSERT INTO `bienthe` (`id`, `idsp`, `idcolor`, `idsize`, `soluong`, `mabienthe`) VALUES (NULL, '$idspadd', '$idcolor', ' $idsize', '$slbienthe', '$mabt');";
+                                                pdo_execute($sql3);
+                                            }
+                                        }
                                     }
                                     ?>
                                     <p><br></p>
                                     <p>
                                     </p>
-                                </div> <!-- end Snow-editor-->
-                            </div> <!-- end card-body-->
-                        </div> <!-- end card-->
-                    </div><!-- end col -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <!-- end row -->
-
             </div>
 
         </div>
-        <div id="box_bt"></div>
 
         <script>
-            function thembt() {
-                var box_bt = document.getElementById("box_bt");
-                box_bt.innerHTML += `<div style="display: flex; ">
-                                                <div style="width: 40%;">
-                                                    <label for="formFile" class="form-label">Chọn màu: </label>
-                                                    <select class="form-select" aria-label="Default select example">
-                                                        <option value="3">Three</option>
-                                                    </select>
-                                                </div>
-                                                <div style="width: 40%;">
-                                                    <label for="formFile" class="form-label">Chọn size: </label>
-                                                        <select class="form-select" aria-label="Default select example">
-                                                            <option value="3">Three</option>
-                                                        </select>
-                                                </div>
-                                                    <div style="width: 10%;">
-                                                        <label for="formFile" class="form-label">Số lượng</label>
-                                                        <div class="input-group mb-3">
-                                                            <span class="input-group-text">SL</span>
-                                                            <input type="number" class="form-control" name="soluong">
-                                                        </div>
-                                                    </div>
-                                                </div>
-`;
-            }
-
-
             function displayImage() {
                 var input = document.getElementById('fileInput');
                 var img = document.getElementById('selectedImage');

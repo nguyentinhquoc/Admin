@@ -31,10 +31,9 @@
                                         <th scope="col">Giá sản phẩm</th>
                                         <th scope="col">Lượt xem</th>
                                         <th scope="col">Số lượng</th>
-                                        <th scope="col">Giảm giá</th>
                                         <th scope="col">Đánh giá(/5)</th>
                                         <th scope="col">Chi tiểt</th>
-                                        <th scope="col" >Chức năng</th>
+                                        <th scope="col">Chức năng</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -50,21 +49,36 @@
                                         $trangthai = $_GET["idtrangthai"];
                                     }
                                     $upload_sanpham = upload_sanpham($search, $trangthai);
-                                    foreach ($upload_sanpham as $key => $value) { ?>
+                                    foreach ($upload_sanpham as $key => $value) {
+                                        $idsp = $value['id'];
+
+                                    ?>
                                         <tr>
                                             <th scope="row"><?= $key + 1 ?></th>
                                             <td><img src="<?= $img_path ?>sanpham/<?= $value['img'] ?>" alt="" width="100px"></td>
                                             <td><?= $value['name'] ?></td>
                                             <td><?= $value['price'] ?></td>
                                             <td><?= $value['luotxem'] ?></td>
-                                            <td><?= $value['soluong'] ?></td>
-                                            <td><?= $value['sale'] ?></td>
-                                            <td><?= $value['star'] ?></td>
-                                           
-                                            <td><a href="index.php?act=editsp&id=<?= $value['id'] ?>">Chi tiết</a></td>
+                                            <?php
+                                            $sqlsoluong = "SELECT SUM(bienthe.soluong) AS 'soluong' FROM `bienthe` WHERE idsp=$idsp";
+                                            $loadsl = pdo_query_one($sqlsoluong);
+                                            ?>
+                                            <td><?= $loadsl['soluong'] ?></td>
+                                            <?php
+                                            $sql_danhgia = "SELECT AVG(danhgia.danhgia) 'chatluong' FROM `danhgia` JOIN bienthe ON danhgia.idbienthe=bienthe.id JOIN sanpham ON sanpham.id=bienthe.idsp where sanpham.id = $idsp ";
+                                            $sql_danhgia = pdo_query_one($sql_danhgia);
+                                            $star = $sql_danhgia['chatluong'];
+                                            if (empty($star)) {
+                                                $star = "Chưa có dánh giá !";
+                                            }
+                                            ?>
+                                            <td>
+                                                <p style="color: orange;"><?= $star ?></p>
+                                            </td>
+                                            <td><a href="index.php?act=editsp&id=<?= $value['id'] ?>">Chi tiết<?=$search?></a></td>
                                             <td>
                                                 <div style="display: flex;">
-                                                    <p class="thao_tac thaotac_2" style="margin-left: 10px;" onclick="delete_sanpham(0,<?= $value['id'] ?>,<?= $trangthai ?>,<?= $search ?>)">
+                                                    <p class="thao_tac thaotac_2" style="margin-left: 10px;" onclick="delete_sanpham(0,<?= $value['id'] ?>,<?= $trangthai ?>,'<?= $search ?>')">
                                                         <?php
                                                         if ($value['trangthai'] == 1) {
                                                             echo '<i class="fa fa-eye" aria-hidden="true"></i>';
@@ -74,10 +88,10 @@
                                                         ?>
                                                     </p>
 
-                                                    <p class="thao_tac thaotac_1" style="margin-left: 20px;" onclick="delete_sanpham(<?= $value['id'] ?>,0,<?= $trangthai ?>,<?= $search ?>)"><i class="fa fa-trash" aria-hidden="true"></i>
+                                                    <p class="thao_tac thaotac_1" style="margin-left: 20px;" onclick="delete_sanpham(<?= $value['id'] ?>,0,<?= $trangthai ?>,'<?= $search ?>')"><i class="fa fa-trash" aria-hidden="true"></i>
                                                 </div>
                                             </td>
-</p>
+                                            </p>
 
                                         </tr>
                                     <?php
@@ -87,14 +101,16 @@
                                 </tbody>
                                 <script>
                                     function delete_sanpham(id_delete, id_an, idtrangthai, search) {
-                                        $.post("ajax/sanpham.php", {
-                                            id_delete: id_delete,
-                                            id_an: id_an,
-                                            idtrangthai: idtrangthai,
-                                            search: search,
-                                        }, function(data) {
-                                            $(".table").html(data);
-                                        });
+                                        if (confirm("Bạn có chắc chắn với hành động của mmình ?")) {
+                                            $.post("ajax/sanpham.php", {
+                                                id_delete: id_delete,
+                                                id_an: id_an,
+                                                idtrangthai: idtrangthai,
+                                                search: search,
+                                            }, function(data) {
+                                                $(".table").html(data);
+                                            });
+                                        }
                                     }
                                 </script>
                             </table>
