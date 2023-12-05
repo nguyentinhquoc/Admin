@@ -178,10 +178,17 @@
         <script src="assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
         <script src="assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
         <script src="assets/libs/feather-icons/feather.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<?php include "assets/js/sweet_alert.php";
+ ?> 
 
-        <!-- knob plugin -->
         <script src="assets/libs/jquery-knob/jquery.knob.min.js"></script>
+        <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
+        <script src="assets/libs/dropify/js/dropify.min.js"></script>
 
+        <!-- <script src="assets/js/pages/form-fileuploads.init.js"></script> -->
+<script>"use strict";!function(i){function e(){this.$body=i("body")}e.prototype.init=function(){Dropzone.autoDiscover=!1,i('[data-plugin="dropzone"]').each(function(){var e=i(this).attr("action"),o=i(this).data("previewsContainer"),e={url:e};o&&(e.previewsContainer=o);o=i(this).data("uploadPreviewTemplate");o&&(e.previewTemplate=i(o).html());i(this).dropzone(e)})},i.FileUpload=new e,i.FileUpload.Constructor=e}(window.jQuery),window.jQuery.FileUpload.init(),0<$('[data-plugins="dropify"]').length&&$('[data-plugins="dropify"]').dropify({messages:{default:"",replace:"",remove:"Remove"},error:{fileSize:"The file size is too big (1M max)."}});</script>
         <!--Morris Chart-->
         <script src="assets/libs/morris.js06/morris.min.js"></script>
         <script src="assets/libs/raphael/raphael.min.js"></script>
@@ -191,8 +198,9 @@
 
         <!-- App js-->
         <script src="assets/js/app.min.js"></script>
-        
+
     </body>
+    
 
 <!-- Mirrored from coderthemes.com/adminto/layouts/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2023 23:15:28 GMT -->
 </html>

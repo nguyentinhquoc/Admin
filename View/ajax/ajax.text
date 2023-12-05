@@ -1,0 +1,12 @@
+include "../../model/pdo.php";
+
+  <script>
+                                    function update(madh, huy) {
+                                        $.post("ajax/update_dh.php", {
+                                            madh: madh,
+                                            huy: huy,
+                                        }, function(data) {
+                                            $(".table").html(data);
+                                        });
+                                    }
+                                </script>
