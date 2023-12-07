@@ -18,6 +18,14 @@ if ($huy == 0) {
             $sql = "UPDATE `bienthe` SET `soluong` = '$soluongnew' WHERE `bienthe`.`id` =  $id_bt;";
             pdo_execute($sql);
         }
+        if ($trangthai == 5) {
+            $sql1 = "SELECT bienthe.luotban,bienthe.id FROM `phanloaidh` JOIN bienthe ON bienthe.id=phanloaidh.bienthe where phanloaidh.madh=$madh";
+            $check_bt = pdo_query_one($sql1);
+            $id_bt = $check_bt['id'];
+            $luotban = $check_bt['luotban']+1;
+            $sql = "UPDATE `bienthe` SET `luotban` = '$luotban' WHERE `bienthe`.`id` =  $id_bt;";
+            pdo_execute($sql);
+        }
     }
 } elseif ($huy == 1) {
     $trangthai = $dh['idtrangthai'];

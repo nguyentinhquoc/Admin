@@ -1,7 +1,7 @@
 <?php
 ob_start();
-include"gloabal.php";
-include("../model/pdo.php");
+include "gloabal.php";
+include "../model/pdo.php";
 include "../model/star.php";
 include "../model/danhmuc.php";
 include "../model/binhluan.php";

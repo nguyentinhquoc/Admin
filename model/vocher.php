@@ -1,6 +1,6 @@
 <?php
 function upload_vocher(){
-    $sql="SELECT vocher.id 'idvocher',taikhoan.name,vocher.date,vocher.sale  FROM `vocher` JOIN taikhoan ON vocher.iduser=taikhoan.id";
+    $sql="SELECT vocher.id 'idvocher',taikhoan.name,vocher.sale  FROM `vocher` JOIN taikhoan ON vocher.iduser=taikhoan.id";
     $upload_vocher=pdo_query($sql);
     return $upload_vocher;
 }

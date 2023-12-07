@@ -13,6 +13,7 @@
                                     $madh = $_GET['madh'];
                                     $chitietdh_sp = chitietdh_sp($madh);
                                     $thongtin=chitietdh_tt($madh);
+                                    
                                 }
                                 ?>
 
@@ -44,12 +45,12 @@
                                         </div>
                                         <div class="float-end mt-3">
                                         <address>
-                                                <strong>Người nhận : <?=$thongtin['name']?></strong><br>
+                                                <strong>Người nhận : <?=$thongtin['hoten']?></strong><br>
                                                 <br>
-                                                Số điện thoại: <?=$thongtin['tel']?><br>
+                                                Số điện thoại: <?=$thongtin['sdt']?><br>
                                                 <br>
 
-                                                Địa chỉ : <?=$thongtin['address']?>
+                                                Địa chỉ : <?=$thongtin['diachi']?>
                                             </address>
                                         </div>
                                     </div><!-- end col -->
@@ -106,9 +107,21 @@
                                     <div class="col-xl-3 col-6 offset-xl-3">
                                         <p class="text-end"><b>Tổng tiền hàng: </b><?= number_format($tongtien,  0, ",", ".")."đ"?> </p>
                                         <p class="text-end">Vocher: - <?= number_format($thongtin['sale'],  0, ",", ".")."đ"?></p>
-                                        <p class="text-end">VAT: 0%</p>
+                                        <p class="text-end">Đã thanh toán: <?php
+if ( $thongtin['thanhtoan']==1) {
+    echo number_format($thongtin['thanhtien'] ,  0, ",", ".")."đ";
+}else{
+    echo "0đ";
+}                                
+                                        ?></p>
                                         <hr>
-                                        <h3 class="text-end" style="color: red;">Tổng thanh toán: <?=number_format($thongtin['thanhtien'] ,  0, ",", ".")."đ"?></h3>
+                                        <h3 class="text-end" style="color: red;">Tổng thanh toán: <?php 
+                                        if ( $thongtin['thanhtoan']==1) {
+                                            echo "0đ";
+                                        }else{
+                                            echo number_format($thongtin['thanhtien'] ,  0, ",", ".")."đ";
+                                        }   
+                                        ?></h3>
                                     </div>
                                 </div>
                                 <hr>

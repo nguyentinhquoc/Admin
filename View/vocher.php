@@ -21,7 +21,6 @@ if (isset($_GET['idvocher'])) {
                                         <th scope="col">#</th>
                                         <th scope="col">Họ và tên</th>
                                         <th scope="col">Giá trị vocher</th>
-                                        <th scope="col">Date</th>
                                         <th scope="col">Chức năng</th>
                                     </tr>
                                 </thead>
@@ -33,11 +32,8 @@ if (isset($_GET['idvocher'])) {
                                             <th scope="row"><?= $key + 1 ?></th>
                                             <td><?= $value['name'] ?></td>
                                             <td><?= $value['sale'] ?></td>
-                                            <td><?= $value['date'] ?></td>
                                             <td>
-                                            <?php $idvocher=$value['idvocher'] ?>
-
-                                               <p onclick="delete_vocher(<?=$value['idvocher']?>)">Xóa Vocher</p>
+                                               <p style="cursor: pointer; color: red; font-weight: bolder;"  onclick="delete_vocher(<?=$value['idvocher']?>)">Xóa Vocher</p>
                                             </td>
                                         </tr>
                                     <?php

@@ -95,7 +95,7 @@
                             </div>
                             <?php
 
-                            $sql = "SELECT danhmuc.name,SUM(luotban) 'luotban' FROM sanpham JOIN danhmuc ON sanpham.iddm=danhmuc.id GROUP BY sanpham.iddm;";
+                            $sql = "SELECT danhmuc.name,SUM(luotban) 'luotban' FROM sanpham JOIN danhmuc ON sanpham.iddm=danhmuc.id JOIN bienthe ON bienthe.idsp=sanpham.id GROUP BY sanpham.iddm;";
                             $luotban = pdo_query($sql);
                             ?>
                             <h4 class="header-title mt-0 mb-4">Lượt bán</h4>

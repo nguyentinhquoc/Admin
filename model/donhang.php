@@ -15,7 +15,7 @@ $chitietdh_sp=pdo_query($sql);
 return $chitietdh_sp;
 }
 function chitietdh_tt($madh){
-$sql="SELECT taikhoan.name,taikhoan.tel,taikhoan.address,chitietdh.sale,chitietdh.thanhtoan,chitietdh.thanhtien,chitietdh.madh,chitietdh.date FROM chitietdh JOIN phanloaidh ON phanloaidh.madh=chitietdh.madh JOIN taikhoan ON taikhoan.id=phanloaidh.iduser where phanloaidh.madh=$madh GROUP BY phanloaidh.madh";
+$sql="SELECT chitietdh.hoten,chitietdh.sdt,chitietdh.diachi,chitietdh.sale,chitietdh.thanhtoan,chitietdh.thanhtien,chitietdh.madh,chitietdh.date FROM chitietdh JOIN phanloaidh ON phanloaidh.madh=chitietdh.madh JOIN taikhoan ON taikhoan.id=phanloaidh.iduser where phanloaidh.madh=$madh GROUP BY phanloaidh.madh";
 $chitietdh_tt=pdo_query_one($sql);
 return $chitietdh_tt;
 }
