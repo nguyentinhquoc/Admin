@@ -67,8 +67,8 @@
                                 </div>
 
                                 <div class="widget-detail-1 text-end">
-                                    <h2 class="fw-normal pt-2 mb-1"  style="width: 200px;"> <?= $tonglx ?> </h2>
-                                    <p class="text-muted mb-1" >Tổng lượt xem</p>
+                                    <h2 class="fw-normal pt-2 mb-1" style="width: 200px;"> <?= $tonglx ?> </h2>
+                                    <p class="text-muted mb-1">Tổng lượt xem</p>
                                 </div>
                             </div>
                         </div>
@@ -181,8 +181,9 @@
 
                                             var data = google.visualization.arrayToDataTable([
                                                 ['Effort', 'Amount given'],
-                                                <?php $tongbl=0;
-                                                foreach ($binhluan as $key => $value) { $tongbl +=$value['binhluan']; ?>['<?= $value['name'] ?>', <?= $value['binhluan'] ?>],
+                                                <?php $tongbl = 0;
+                                                foreach ($binhluan as $key => $value) {
+                                                    $tongbl += $value['binhluan']; ?>['<?= $value['name'] ?>', <?= $value['binhluan'] ?>],
                                                 <?php
                                                 }
                                                 ?>
@@ -203,7 +204,7 @@
                                 </div>
 
                                 <div class="widget-detail-1 text-end">
-                                    <h2 class="fw-normal pt-2 mb-1"  style="width: 200px;"> <?=$tongbl?> </h2>
+                                    <h2 class="fw-normal pt-2 mb-1" style="width: 200px;"> <?= $tongbl ?> </h2>
                                     <p class="text-muted mb-1">Tổng bình luận</p>
                                 </div>
                             </div>
@@ -230,7 +231,7 @@
                             </div>
                             <?php
 
-                            $sql = "SELECT danhmuc.name,SUM(danhgia.id)'danhgia' FROM `danhgia` JOIN bienthe ON danhgia.idbienthe=bienthe.id JOIN sanpham ON sanpham.id=bienthe.idsp JOIN danhmuc ON danhmuc.id=sanpham.iddm GROUP BY sanpham.iddm;";
+                            $sql = "SELECT danhmuc.name,COUNT(danhgia.id)'danhgia' FROM `danhgia` JOIN bienthe ON danhgia.idbienthe=bienthe.id JOIN sanpham ON sanpham.id=bienthe.idsp JOIN danhmuc ON danhmuc.id=sanpham.iddm GROUP BY sanpham.iddm;";
                             $danhgia = pdo_query($sql);
                             ?>
                             <h4 class="header-title mt-0 mb-4"> Đánh giá</h4>
@@ -246,8 +247,9 @@
                                         function drawChart() {
                                             var data = google.visualization.arrayToDataTable([
                                                 ['Effort', 'Amount given'],
-                                                <?php $tongdg=0;
-                                                foreach ($danhgia as $key => $value) {$tongdg+=$value['danhgia'];  ?>['<?= $value['name'] ?>', <?= $value['danhgia'] ?>],
+                                                <?php $tongdg = 0;
+                                                foreach ($danhgia as $key => $value) {
+                                                    $tongdg += $value['danhgia'];  ?>['<?= $value['name'] ?>', <?= $value['danhgia'] ?>],
                                                 <?php
                                                 }
                                                 ?>
@@ -268,7 +270,7 @@
                                 </div>
 
                                 <div class="widget-detail-1 text-end">
-                                    <h2 class="fw-normal pt-2 mb-1" style="width: 200px;"><?=$tongdg?> </h2>
+                                    <h2 class="fw-normal pt-2 mb-1" style="width: 200px;"><?= $tongdg ?> </h2>
                                     <p class="text-muted mb-1">Tổng đánh giá</p>
                                 </div>
                             </div>
@@ -279,6 +281,63 @@
 
             </div>
             <!-- end row -->
+    
+            <div class="doanhthu" style="background-color: white; margin:20px 0px;">
+            <div  id="line_top_x"></div>
+
+                <script>
+                        google.charts.load('current', {
+                            'packages': ['line']
+                        });
+                    google.charts.setOnLoadCallback(drawChart);
+
+                    function drawChart() {
+
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('number', 'Day');
+                        data.addColumn('number', 'Guardians of the Galaxy');
+                        data.addColumn('number', 'The Avengers');
+                        data.addColumn('number', 'Transformers: Age of Extinction');
+                        data.addRows([
+                            [1, 37.8, 80.8, 41.8],
+                            [2, 30.9, 69.5, 32.4],
+                            [3, 25.4, 57, 25.7],
+                            [4, 11.7, 18.8, 10.5],
+                            [5, 11.9, 17.6, 10.4],
+                            [6, 8.8, 13.6, 7.7],
+                            [7, 7.6, 12.3, 9.6],
+                            [8, 12.3, 29.2, 10.6],
+                            [9, 16.9, 42.9, 14.8],
+                            [10, 12.8, 30.9, 11.6],
+                            [11, 5.3, 7.9, 4.7],
+                            [12, 6.6, 8.4, 5.2],
+                            [13, 4.8, 6.3, 3.6],
+                            [14, 4.2, 6.2, 3.4]
+                        ]);
+
+                        var options = {
+                            chart: {
+                                title: 'Box Office Earnings in First Two Weeks of Opening',
+                                subtitle: 'in millions of dollars (USD)'
+                            },
+                            width: 900,
+                            height: 500,
+                            axes: {
+                                x: {
+                                    0: {
+                                        side: 'top'
+                                    }
+                                }
+                            }
+                        };
+
+                        var chart = new google.charts.Line(document.getElementById('line_top_x'));
+
+                        chart.draw(data, google.charts.Line.convertOptions(options));
+                    }
+
+                </script>
+            </div>
             <table class="table table-bordered" style="background-color: white;">
                 <thead>
                     <tr>
@@ -309,6 +368,8 @@
                     </tr>
                 </tbody>
             </table>
+
+
             <div class="row">
                 <div class="col-xl-4">
                     <div class="card" style="height: 420px;">
