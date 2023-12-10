@@ -13,3 +13,176 @@
     color: rgb(37, 237, 11);
 
 }
+.myacc {
+  display: flex;
+  padding: 10px;
+}
+
+.myacc .box_left {
+  border: 1px solid;
+  width: 30%;
+  margin-right: 20px;
+  padding: 50px;
+}
+.myacc .box_left .list {
+  width: 100%;
+}
+
+.myacc .box_left .list li {
+  margin-bottom: 10px;
+}
+
+.myacc .box_right {
+  border: 1px solid;
+  width: 70%;
+  padding: 50px;
+}
+
+.myacc .box_right .link_edit {
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #EE4D2D;
+  color: white;
+  font-weight: bolder;
+  float: right;
+
+}
+
+.myacc .box_right .profile {
+  width: 70%;
+  margin: 0 auto;
+}
+.myacc .box_right .menu {
+  display: flex;
+  justify-content: space-around;
+margin-bottom: 50px;
+}
+.myacc .box_right .menu a {
+background-color: red;
+width: 30%;
+text-align: center;
+padding: 20px;
+font-weight: bolder;
+color: white;
+}
+.myacc .box_right .chat {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid;
+}
+
+.myacc .box_right .chat .user {
+  width: 50%;
+  margin-left: 350px;
+}
+
+.myacc .box_right .chat .admin {
+  width: 50%;
+}
+
+.myacc .box_right .chat .admin .chat {
+  width: 50%;
+}
+
+.myacc .box_right .chat .user .chat {
+  width: 50px;
+}
+
+.myacc .box_right .profile .avatar {
+  width: 40%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.myacc .box_right .doi_pass {
+  width: 40%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.myacc .box_right .doi_pass .submit {
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #EE4D2D;
+  color: white;
+  font-weight: bolder;
+  float: right;
+  margin-top: 20px;
+}
+
+.myacc .box_right .doi_pass label {
+  margin-bottom: 5px;
+}
+
+.myacc .box_right .doi_pass input {
+  border-radius: 10px;
+  width: 280px;
+  padding: 5px;
+
+}
+
+
+.myacc .box_right .donhang .item {
+  display: flex;
+  margin-bottom: 20px;
+}
+.myacc .box_right .donhang .item {
+
+}
+
+.myacc .box_right .donhang {
+  width: 700px;
+}
+.myacc .box_right .donhang .donhangct .top {
+display: flex;
+justify-content: space-between;
+}
+
+.myacc .box_right .donhang .gia {
+  width: 20%;
+  padding-top: 80px;
+  color: red;
+  font-weight: bolder;
+}
+
+.myacc .box_right .donhang .item p {
+  margin: 0;
+  margin-left: 10px;
+  font-size: small;
+}
+
+.myacc .box_right .donhang .donhangct {
+  padding: 20px;
+  border: 1px solid;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.myacc .box_right .edit {
+  width: 40%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.myacc .box_right .edit .submit {
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #EE4D2D;
+  color: white;
+  font-weight: bolder;
+  float: right;
+  margin-top: 20px;
+}
+
+.myacc .box_right .edit label {
+  margin-bottom: 5px;
+}
+
+.myacc .box_right .edit input {
+  border-radius: 10px;
+  width: 280px;
+  padding: 5px;
+}

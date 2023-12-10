@@ -1,5 +1,6 @@
 <?php
 ob_start();
+session_start();
 include "gloabal.php";
 include "../model/pdo.php";
 include "../model/star.php";
@@ -17,6 +18,19 @@ if (!isset($_GET["act"])) {
 } else {
     $act = $_GET["act"];
     switch ($act) {
+        case 'cskh':
+            include "cskh.php";
+            break;
+        case 'myaccout':
+            include "mytk.php";
+            break;
+        case "dangxuat":
+            unset($_SESSION['email_dn']);
+            header('location: ../../../../User/view/index.php?act=dangxuat');
+            break;
+        case "muahang":
+            header('location: ../../../../User/view/index.php');
+            break;
         case 'quanli_binhluan':
             include "binhluan.php";
             break;

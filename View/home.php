@@ -281,44 +281,112 @@
 
             </div>
             <!-- end row -->
-    
-            <div class="doanhthu" style="background-color: white; margin:20px 0px;">
-            <div  id="line_top_x"></div>
+      
+            <div class="doanhthu" style="background-color: white; margin:20px 0px; padding: 50px;">
+            <?php
+            // $time='month';
+
+            $sql = "
+SELECT 
+            month_list.day 'time',
+            COALESCE(SUM(chitietdh.thanhtien), 0) AS tongtien
+        FROM 
+            (
+                SELECT '01' AS day
+                UNION SELECT '02'
+                UNION SELECT '03'
+                UNION SELECT '04'
+                UNION SELECT '05'
+                UNION SELECT '06'
+                UNION SELECT '07'
+                UNION SELECT '08'
+                UNION SELECT '09'
+                UNION SELECT '10'
+                UNION SELECT '11'
+                UNION SELECT '12'
+                UNION SELECT '13'
+                UNION SELECT '14'
+                UNION SELECT '15'
+                UNION SELECT '16'
+                UNION SELECT '17'
+                UNION SELECT '18'
+                UNION SELECT '19'
+                UNION SELECT '20'
+                UNION SELECT '21'
+                UNION SELECT '22'
+                UNION SELECT '23'
+                UNION SELECT '24'
+                UNION SELECT '25'
+                UNION SELECT '26'
+                UNION SELECT '27'
+                UNION SELECT '28'
+                UNION SELECT '29'
+                UNION SELECT '30'
+                UNION SELECT '31'
+            ) AS month_list
+        LEFT JOIN 
+            chitietdh ON DAY(chitietdh.date) = month_list.day
+                  AND MONTH(chitietdh.date) = MONTH(CURRENT_DATE())
+        GROUP BY 
+            month_list.day
+        ORDER BY 
+            month_list.day;
+"
+
+
+
+            ?>
+
+                <select class="form-select" aria-label="Default select example" onchange="doibd(this.value)">
+                    <option value="1">Thống kê theo ngày</option>
+                    <option value="2">Thống kê theo tháng</option>
+                </select>
+
+                <div id="option1Content" class="option1-content">
+
+                </div>
 
                 <script>
-                        google.charts.load('current', {
-                            'packages': ['line']
+                    function doibd(mabd) {
+                        $.post("ajax/bieudo.php", {
+                            mabd: mabd,
+                        }, function(data) {
+                            $("#line_top_x").html(data);
                         });
+                    }
+                </script>
+                <div id="line_top_x" style="width: 50%;"></div>
+
+                <?php
+                $bieudo = pdo_query($sql);
+
+                ?>
+                <script>
+                    google.charts.load('current', {
+                        'packages': ['line']
+                    });
                     google.charts.setOnLoadCallback(drawChart);
 
                     function drawChart() {
 
                         var data = new google.visualization.DataTable();
-                        data.addColumn('number', 'Day');
-                        data.addColumn('number', 'Guardians of the Galaxy');
-                        data.addColumn('number', 'The Avengers');
-                        data.addColumn('number', 'Transformers: Age of Extinction');
+                        data.addColumn('number', '');
+                        data.addColumn('number', 'Doanh thu');
                         data.addRows([
-                            [1, 37.8, 80.8, 41.8],
-                            [2, 30.9, 69.5, 32.4],
-                            [3, 25.4, 57, 25.7],
-                            [4, 11.7, 18.8, 10.5],
-                            [5, 11.9, 17.6, 10.4],
-                            [6, 8.8, 13.6, 7.7],
-                            [7, 7.6, 12.3, 9.6],
-                            [8, 12.3, 29.2, 10.6],
-                            [9, 16.9, 42.9, 14.8],
-                            [10, 12.8, 30.9, 11.6],
-                            [11, 5.3, 7.9, 4.7],
-                            [12, 6.6, 8.4, 5.2],
-                            [13, 4.8, 6.3, 3.6],
-                            [14, 4.2, 6.2, 3.4]
+                            <?php
+                            foreach ($bieudo as $key => $value) {
+                            ?>[<?= $value['time'] ?>, <?= $value['tongtien'] ?>],
+
+                            <?php
+                            }
+                            ?>
+
                         ]);
 
                         var options = {
                             chart: {
-                                title: 'Box Office Earnings in First Two Weeks of Opening',
-                                subtitle: 'in millions of dollars (USD)'
+                                title: 'Biểu đồ thể hiện doanh thu theo Ngày',
+                                subtitle: 'Biểu đồ dười đây thể hiện doanh thu theo ngày với đơn vị VND'
                             },
                             width: 900,
                             height: 500,
@@ -335,7 +403,6 @@
 
                         chart.draw(data, google.charts.Line.convertOptions(options));
                     }
-
                 </script>
             </div>
             <table class="table table-bordered" style="background-color: white;">
