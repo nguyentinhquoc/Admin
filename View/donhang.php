@@ -5,7 +5,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+
                             <h4 class="mt-0 header-title">Quản lý đơn hàng</h4>
+                            <form action="" method="post">
+                                <input type="text" class="form-control" name="madh" list="datalistOptions" id="exampleDataList" placeholder="Tìm kiếm mã đơn hàng">
+                            </form>
                             <p class="text-muted font-14 mb-3">
                                 <?php
                                 if (isset($_GET['iddh'])) {
@@ -49,8 +53,17 @@
                                     } else {
                                         $trangthai = "";
                                     }
+                                    if (isset($_POST['madh'])) {
+                                        $search = $_POST['madh'];
+                                    }else {
+                                        $search="";
+                                    }
+                                    $upload_dh = upload_dh($trangthai, $search);
 
-                                    $upload_dh = upload_dh($trangthai);
+
+
+
+            
                                     foreach ($upload_dh as $key => $value) {
 
                                         if ($value['idtt'] == 3) {

@@ -8,10 +8,23 @@
                         <div class="card-body">
                             <h4 class="mt-0 header-title">Quản lý sản phẩm</h4>
                             <p class="text-muted font-14 mb-3">
-                                Dưới đây là bảng quản lí tất cả các sản phẩm
+                            <?php
+                                if (isset($_GET['idtrangthai'])) {
+                                    if ($_GET['idtrangthai'] == 1) {
+                                    echo "Dưới đây là bảng quản lí cho các tất cả các sản phẩm hiển thị";
+
+                                    }
+                                    if ($_GET['idtrangthai'] == 0) {
+                                        echo "Dưới đây là bảng quản lí cho các tất cả các sản phẩm được ẩn";
+
+                                    }
+                                } else {
+                                    echo "Dưới đây là bảng quản lí cho các tất cả các sản phẩm";
+                                }
+                                ?>
                             <div class="search_sanpham">
                                 <form action="" method="post">
-                                    <label for="exampleDataList" class="form-label">Datalist example</label>
+                                    <label for="exampleDataList" class="form-label">Quản lý sản phẩm</label>
                                     <input type="text" class="form-control" name="search" list="datalistOptions" id="exampleDataList" placeholder="Tìm kiếm sản phẩm">
                                     <datalist id="datalistOptions">
                                         <option value="Nike">
@@ -20,6 +33,9 @@
                                     </datalist>
                                 </form>
                                 <a href="index.php?act=addsp">Thêm sản phẩm</a>
+                                <?php if (isset($_POST['search'])) { ?>
+                                    <h4 style="color: red;">Từ khóa tìm kiếm: <?=$_POST['search']?></h4>
+                              <?php  } ?>
                             </div>
                             </p>
                             <table class="table">
@@ -75,7 +91,7 @@
                                             <td>
                                                 <p style="color: orange;"><?= $star ?></p>
                                             </td>
-                                            <td><a href="index.php?act=editsp&id=<?= $value['id'] ?>">Chi tiết<?=$search?></a></td>
+                                            <td><a href="index.php?act=editsp&id=<?= $value['id'] ?>">Chi tiết</a></td>
                                             <td>
                                                 <div style="display: flex;">
                                                     <p class="thao_tac thaotac_2" style="margin-left: 10px;" onclick="delete_sanpham(0,<?= $value['id'] ?>,<?= $trangthai ?>,'<?= $search ?>')">

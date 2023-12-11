@@ -14,6 +14,7 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     <!-- App css -->
@@ -138,37 +139,39 @@
                     ?>
                     <img src="<?= $img_path . "avarta_user/" . $taikhoan_email['img'] ?>" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
                     <div class="dropdown">
-                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">Nowak Helme</a>
-                        <div class="dropdown-menu user-pro-dropdown">
+                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false"><?= $taikhoan_email['name'] ?></a>
+
+                        <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-header noti-title">
+                                <h6 class="text-overflow m-0">Welcome !</h6>
+                            </div>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-user me-1"></i>
-                                <span>My Account</span>
+                            <a href="index.php?act=myaccout&profile=1" class="dropdown-item notify-item">
+                                <i class="fe-user"></i>
+                                <span>Tài khoản của tôi</span>
                             </a>
+                            <!-- item-->
+                            <a href="index.php?act=muahang" class="dropdown-item notify-item">
+                                <i class="fe-lock"></i>
+                                <span>Mua hàng</span>
+                            </a>
+
+                            <div class="dropdown-divider"></div>
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-settings me-1"></i>
-                                <span>Settings</span>
+                            <a href="index.php?act=dangxuat" class="dropdown-item notify-item">
+                                <i class="fe-log-out"></i>
+                                <span>Đang xuất</span>
                             </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-lock me-1"></i>
-                                <span>Lock Screen</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out me-1"></i>
-                                <span>Logout</span>
-                            </a>
-
                         </div>
+
+
+                      
                     </div>
 
-                    <p class="text-muted left-user-info">Admin Head</p>
+                    <p class="text-muted left-user-info">TRANG QUẢN TRỊ</p>
 
                     <ul class="list-inline">
                         <li class="list-inline-item">
@@ -202,7 +205,7 @@
 
                         <li>
                             <a href="index.php?act=cskh">
-                            <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                <i class="fa fa-question-circle" aria-hidden="true"></i>
                                 <span>Hỗ trợ khách hàng </span>
                             </a>
                         </li>
@@ -242,7 +245,7 @@
                                 <span>Quản lí Vocher </span>
                             </a>
                         </li>
-                     
+
                         <li>
                             <a href="index.php?act=banner">
                                 <i class="fa fa-columns" aria-hidden="true"></i>

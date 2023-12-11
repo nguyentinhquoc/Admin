@@ -281,12 +281,12 @@
 
             </div>
             <!-- end row -->
-      
-            <div class="doanhthu" style="background-color: white; margin:20px 0px; padding: 50px;">
-            <?php
-            // $time='month';
 
-            $sql = "
+            <div class="doanhthu" style="background-color: white; margin:20px 0px; padding: 50px;">
+                <?php
+                // $time='month';
+
+                $sql = "
 SELECT 
             month_list.day 'time',
             COALESCE(SUM(chitietdh.thanhtien), 0) AS tongtien
@@ -335,7 +335,7 @@ SELECT
 
 
 
-            ?>
+                ?>
 
                 <select class="form-select" aria-label="Default select example" onchange="doibd(this.value)">
                     <option value="1">Thống kê theo ngày</option>
@@ -405,36 +405,7 @@ SELECT
                     }
                 </script>
             </div>
-            <table class="table table-bordered" style="background-color: white;">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+
 
 
             <div class="row">
@@ -448,11 +419,15 @@ SELECT
 
                             </div>
 
-                            <h4 class="header-title mt-0">Daily Sales</h4>
+                            <h4 class="header-title mt-0">Số lượng sản phẩm tồn kho</h4>
+                            <?php
+                            $sql = "SELECT danhmuc.name,SUM(bienthe.soluong) 'soluong'FROM danhmuc JOIN sanpham ON sanpham.iddm=danhmuc.id JOIN bienthe ON bienthe.idsp=sanpham.id GROUP BY danhmuc.id;";
+                            $danhluctk = pdo_query($sql);
+                            ?>
 
 
                             <div class="widget-chart text-center">
-                                <div id="donutchart5" style="height: 355px; width: 300px;;"></div>
+
                                 <script type="text/javascript">
                                     google.charts.load("current", {
                                         packages: ["corechart"]
@@ -461,22 +436,44 @@ SELECT
 
                                     function drawChart() {
                                         var data = google.visualization.arrayToDataTable([
-                                            ['Task', 'Hours per Day'],
-                                            ['Work', 11],
-                                            ['Eat', 2],
-                                            ['Commute', 2],
-                                            ['Watch TV', 2],
-                                            ['Sleep', 7]
+                                            ['Language', 'Speakers (in millions)'],
+                                            <?php foreach ($danhluctk as $key => $value) { ?>
+
+                                                ['<?= $value['name'] ?>', <?= $value['soluong'] ?>],
+                                            <?php  } ?>
+
+
+
                                         ]);
 
                                         var options = {
-                                            pieHole: 0.3,
+                                            title: '',
+                                            legend: 'none',
+                                            pieSliceText: 'label',
+                                            slices: {
+                                                4: {
+                                                    offset: 0.2
+                                                },
+                                                12: {
+                                                    offset: 0.3
+                                                },
+                                                14: {
+                                                    offset: 0.4
+                                                },
+                                                15: {
+                                                    offset: 0.5
+                                                },
+                                            },
                                         };
 
-                                        var chart = new google.visualization.PieChart(document.getElementById('donutchart5'));
+                                        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
                                         chart.draw(data, options);
                                     }
                                 </script>
+                                </head>
+
+                                <body>
+                                    <div id="piechart" style="width: 300px; height: 300px;"></div>
 
 
                             </div>
@@ -493,46 +490,43 @@ SELECT
                                 </a>
 
                             </div>
-                            <h4 class="header-title mt-0">Statistics</h4>
-                            <div id="chart_div" style="height: 360px; width: 680px;"></div>
+                            <h4 class="header-title mt-0">Top sản phẩm</h4>
+                            <div style="display: flex; justify-content: space-around;">
+                                <div>
+                                    <h5>Top sản phẩm nhiều lượt xem</h5>
+                                    <?php
+                                    $sql = "SELECT sanpham.id 'idsp',sanpham.img,sanpham.name FROM `sanpham` ORDER BY sanpham.luotxem DESC LIMIT 0,5";
+                                    $loadlx = pdo_query($sql);
+                                    foreach ($loadlx as $key => $value) { ?>
+                                        <div>
+                                        <a href="index.php?act=editsp&id=<?=$value['idsp']?>">
 
-                            <script type="text/javascript">
-                                google.charts.load('current', {
-                                    'packages': ['corechart']
-                                });
-                                google.charts.setOnLoadCallback(drawVisualization);
+                                            <img src="<?= $img_path ?>/sanpham/<?= $value['img'] ?>" alt="" width="65px">
+                                            <span><?=$value['name']?></span>
+                                            </a>
+                                        </div>
+                                    <?php }
+                                    ?>
 
-                                function drawVisualization() {
-                                    // Some raw data (not necessarily accurate)
-                                    var data = google.visualization.arrayToDataTable([
-                                        ['Month', 'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-                                        ['2004/05', 165, 938, 522, 998, 450, 614.6],
-                                        ['2005/06', 135, 1120, 599, 1268, 288, 682],
-                                        ['2006/07', 157, 1167, 587, 807, 397, 623],
-                                        ['2007/08', 139, 1110, 615, 968, 215, 609.4],
-                                        ['2008/09', 136, 691, 629, 1026, 366, 569.6]
-                                    ]);
+                                </div>
+                                <div>
+                                    <h5>Top sản phẩm bán chạy</h5>
+                                    <?php
+                                    $sql = "SELECT sanpham.id 'idsp', sanpham.name, sanpham.price, sanpham.img, sanpham.luotxem, SUM(bienthe.luotban) AS 'luotban', sanpham.sale FROM sanpham JOIN bienthe ON bienthe.idsp = sanpham.id GROUP BY sanpham.id, sanpham.name, sanpham.price, sanpham.img, sanpham.luotxem, sanpham.sale ORDER BY luotban DESC LIMIT 5;";
+                                    $loadbc = pdo_query($sql);
+                                    foreach ($loadbc as $key => $value) { ?>
+                                        <div>
+                                            <a href="index.php?act=editsp&id=<?=$value['idsp']?>">
+                                            <img src="<?= $img_path ?>/sanpham/<?= $value['img'] ?>" alt="" width="65px">
+                                            <span><?=$value['name']?></span>
+                                    </a>
+                                        </div>
+                                    <?php }
+                                    ?>
 
-                                    var options = {
-                                        title: 'Monthly Coffee Production by Country',
-                                        vAxis: {
-                                            title: 'Cups'
-                                        },
-                                        hAxis: {
-                                            title: 'Month'
-                                        },
-                                        seriesType: 'bars',
-                                        series: {
-                                            5: {
-                                                type: 'line'
-                                            }
-                                        }
-                                    };
-
-                                    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
-                                    chart.draw(data, options);
-                                }
-                            </script>
+                                </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div><!-- end col -->

@@ -1,11 +1,43 @@
 <?php
-function upload_dh($trangthai){
-    if ($trangthai=="") {
-    $sql="SELECT phanloaidh.id,taikhoan.name 'user',taikhoan.tel, chitietdh.date,trangthai.id 'idtt',chitietdh.date,trangthai.trangthai,chitietdh.thanhtien,chitietdh.madh FROM phanloaidh JOIN chitietdh ON phanloaidh.madh=chitietdh.madh JOIN trangthai ON trangthai.id=phanloaidh.idtrangthai JOIN taikhoan ON taikhoan.id=phanloaidh.iduser WHERE phanloaidh.idtrangthai = '3' OR phanloaidh.idtrangthai = '4' OR phanloaidh.idtrangthai = '5' OR phanloaidh.idtrangthai = '6' GROUP BY phanloaidh.madh ";
-        
-    }else{
-    $sql="SELECT phanloaidh.id,taikhoan.name 'user',taikhoan.tel, chitietdh.date,chitietdh.date ,trangthai.id 'idtt',trangthai.trangthai,chitietdh.thanhtien,chitietdh.madh FROM phanloaidh JOIN chitietdh ON phanloaidh.madh=chitietdh.madh JOIN trangthai ON trangthai.id=phanloaidh.idtrangthai JOIN taikhoan ON taikhoan.id=phanloaidh.iduser WHERE phanloaidh.idtrangthai = '$trangthai' GROUP BY phanloaidh.madh ";
-}
+function upload_dh($trangthai,$search){
+    if ($search == "" || empty($search)) {
+        if ($trangthai == "") {
+            $sql = "SELECT phanloaidh.id, taikhoan.name 'user', taikhoan.tel, chitietdh.date, trangthai.id 'idtt', chitietdh.date, trangthai.trangthai, chitietdh.thanhtien, chitietdh.madh 
+                    FROM phanloaidh 
+                    JOIN chitietdh ON phanloaidh.madh = chitietdh.madh 
+                    JOIN trangthai ON trangthai.id = phanloaidh.idtrangthai 
+                    JOIN taikhoan ON taikhoan.id = phanloaidh.iduser 
+                    WHERE phanloaidh.idtrangthai IN ('3', '4', '5', '6') 
+                    GROUP BY phanloaidh.madh";
+        } else {
+            $sql = "SELECT phanloaidh.id, taikhoan.name 'user', taikhoan.tel, chitietdh.date, chitietdh.date, trangthai.id 'idtt', trangthai.trangthai, chitietdh.thanhtien, chitietdh.madh 
+                    FROM phanloaidh 
+                    JOIN chitietdh ON phanloaidh.madh = chitietdh.madh 
+                    JOIN trangthai ON trangthai.id = phanloaidh.idtrangthai 
+                    JOIN taikhoan ON taikhoan.id = phanloaidh.iduser 
+                    WHERE phanloaidh.idtrangthai = '$trangthai' 
+                    GROUP BY phanloaidh.madh";
+        }
+    } elseif ($search != "") {
+        if ($trangthai == "") {
+            $sql = "SELECT phanloaidh.id, taikhoan.name 'user', taikhoan.tel, chitietdh.date, trangthai.id 'idtt', chitietdh.date, trangthai.trangthai, chitietdh.thanhtien, chitietdh.madh 
+                    FROM phanloaidh 
+                    JOIN chitietdh ON phanloaidh.madh = chitietdh.madh 
+                    JOIN trangthai ON trangthai.id = phanloaidh.idtrangthai 
+                    JOIN taikhoan ON taikhoan.id = phanloaidh.iduser 
+                    WHERE (phanloaidh.idtrangthai IN ('3', '4', '5', '6')) AND phanloaidh.madh LIKE '%$search%' 
+                    GROUP BY phanloaidh.madh";
+        } else {
+            $sql = "SELECT phanloaidh.id, taikhoan.name 'user', taikhoan.tel, chitietdh.date, chitietdh.date, trangthai.id 'idtt', trangthai.trangthai, chitietdh.thanhtien, chitietdh.madh 
+                    FROM phanloaidh 
+                    JOIN chitietdh ON phanloaidh.madh = chitietdh.madh 
+                    JOIN trangthai ON trangthai.id = phanloaidh.idtrangthai 
+                    JOIN taikhoan ON taikhoan.id = phanloaidh.iduser 
+                    WHERE (phanloaidh.idtrangthai = '$trangthai') AND phanloaidh.madh LIKE '%$search%' 
+                    GROUP BY phanloaidh.madh";
+        }
+    }
+    
     $upload_dh= pdo_query($sql);
     return $upload_dh;
 }

@@ -22,9 +22,10 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h5 class="mt-0">Inline edit with Button</h5>
-                            <p class="sub-header">Inline edit like a spreadsheet, toolbar column with edit
-                                button only and without focus on first input.</p>
+                        <h4 class="mt-0 header-title">Quản lý bình luận</h4>
+                            <p class="text-muted font-14 mb-3">
+                                Dưới đây là bảng quản lí tất cả các bình luận
+<br>
                             <div class="table-responsive">
                                 <table class="table table-centered mb-0" id="btn-editable">
                                     <thead>

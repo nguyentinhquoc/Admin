@@ -1,5 +1,6 @@
 <main>
     <?php
+    include "gloabal.php";
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
     }
@@ -9,7 +10,8 @@
         $Header = $_POST['Header'];
         $noidung = $_POST['noidung'];
         $img = $_FILES['img']['name'];
-        $path = $img_path . "slider/" . $_FILES['img']['name'];
+        $path = $img_path . "thongbao/" . $_FILES['img']['name'];
+
         $file = $_FILES['img']['tmp_name'];
         move_uploaded_file($file, $path);
         if ($Header != "" && $noidung != "") {

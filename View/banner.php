@@ -6,11 +6,11 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="mt-0 header-title">Quản lý sản phẩm</h4>
+                            <h4 class="mt-0 header-title">Quản lý banner</h4>
                             <p class="text-muted font-14 mb-3">
-                                Dưới đây là bảng quản lí tất cả các sản phẩm
+                                Dưới đây là bảng quản lí tất cả các banner
 <br>
-                                <a href="index.php?act=addbanner">Thêm sản phẩm</a>
+                                <a href="index.php?act=addbanner">Thêm banner</a>
                         </div>
                         </p>
                         <table class="table">

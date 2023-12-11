@@ -20,11 +20,13 @@ if ($huy == 0) {
         }
         if ($trangthai == 5) {
             $sql1 = "SELECT bienthe.luotban,bienthe.id FROM `phanloaidh` JOIN bienthe ON bienthe.id=phanloaidh.bienthe where phanloaidh.madh=$madh";
-            $check_bt = pdo_query_one($sql1);
-            $id_bt = $check_bt['id'];
-            $luotban = $check_bt['luotban']+1;
-            $sql = "UPDATE `bienthe` SET `luotban` = '$luotban' WHERE `bienthe`.`id` =  $id_bt;";
-            pdo_execute($sql);
+            $check_bt = pdo_query($sql1);
+            foreach ($check_bt as $key => $value) {
+                $id_bt = $value['id'];
+                $luotban = $value['luotban'] + 1;
+                $sql = "UPDATE `bienthe` SET `luotban` = '$luotban' WHERE `bienthe`.`id` =  $id_bt;";
+                pdo_execute($sql);
+            }
         }
     }
 } elseif ($huy == 1) {
@@ -53,14 +55,20 @@ if ($huy == 0) {
     <tbody>
         <?php
         if (isset($_GET['iddh'])) {
+
             $trangthai = $_GET['iddh'];
         } else {
             $trangthai = "";
         }
+        if (isset($_POST['madh'])) {
+            $search = $_POST['madh'];
+        } else {
+            $search = "";
+        }
+        $upload_dh = upload_dh($trangthai, $search);
 
-        echo $trangthai;
-        $upload_dh = upload_dh($trangthai);
         foreach ($upload_dh as $key => $value) {
+
 
             if ($value['idtt'] == 3) {
                 $update_tt = "Xác nhận đơn hàng";

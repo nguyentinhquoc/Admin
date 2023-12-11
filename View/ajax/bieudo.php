@@ -108,10 +108,10 @@ $bieudo = pdo_query($sql);
         var options = {
             chart: {
 
-           
+
                 <?php
-                if ($_POST['mabd'] == 1) { 
-                    ?>
+                if ($_POST['mabd'] == 1) {
+                ?>
                     title: 'Biểu đồ thể hiện doanh thu theo Ngày',
                     subtitle: 'Biểu đồ dười đây thể hiện doanh thu theo ngày với đơn vị VND'
                 <?php }
@@ -120,7 +120,7 @@ $bieudo = pdo_query($sql);
                     subtitle: 'Biểu đồ dười đây thể hiện doanh thu theo tháng với đơn vị VND'
                 <?php  }
                 ?>
-                <?php 
+                <?php
                 if ($_POST['mabd'] == 3) { ?>
                     title: 'Biểu đồ thể hiện doanh thu theo Tháng',
                     subtitle: 'Biểu đồ dười đây thể hiện doanh thu theo tháng với đơn vị VND'
